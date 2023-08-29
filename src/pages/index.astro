@@ -1,23 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="TDK">
+  <Header />
   <main>
-    <h1>Tvornica Drvenih Konstrukcija</h1>
-    <p>This website is under development 🛠️</p>
+    <Hero />
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1.5rem;
-    text-align: center;
-  }
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
+    position: relative;
   }
 </style>
