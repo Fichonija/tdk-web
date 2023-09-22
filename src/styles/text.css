@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat Semibold';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat Regular';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* todo */
+/* 
+  text styles should be a combination of:
+    - size (eg. `xxl`) which is determined by font-size and line-height
+    - weight (eg. `bold`) which is determined by font used (bold, regular, etc.)
+
+  use rem units instead of px for font-size
+*/
+.text-xxl-bold {
+  font-family: 'Montserrat Bold';
+  font-size: 48px;
+  line-height: 1.25;
+}
