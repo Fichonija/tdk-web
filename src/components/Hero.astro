@@ -1,7 +1,17 @@
+---
+import Logo from './logo/Logo.astro';
+---
+
 <div class="hero">
   <div class="content">
+    <Logo width={128} />
     <h1 class="text-xxxl-bold">Tvornica Drvenih Konstrukcija</h1>
-    <p>Ova web stranica je u izradi 🛠️</p>
+    <div class="contact">
+      <a class="text-l-medium" href="mailto:tvornicadrvenihkonstrukcija@gmail.com">
+        mail: tvornicadrvenihkonstrukcija@gmail.com
+      </a>
+      <a class="text-l-medium" href="tel:0959236708">tel: +385 95 9236 708</a>
+    </div>
   </div>
   <div class="overlay"></div>
 </div>
@@ -16,15 +26,20 @@
     background-position: center center;
     display: flex;
     justify-content: center;
+    padding-inline: 64px;
   }
+
   .content {
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 16px;
     text-align: center;
     color: white;
   }
+
   .overlay {
     width: 100%;
     height: 100%;
@@ -32,5 +47,17 @@
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
   }
 </style>
