@@ -1,56 +1,77 @@
-<div class="contact-form-wrapper">
-  <form id="contact-form">
-    <h2>Kontaktirajte nas</h2>
-    <div class="contact-field">
-      <label for="name">Ime</label>
-      <input type="text" name="name" id="name" />
-    </div>
-    <div class="contact-field">
-      <label for="surname">Prezime</label>
-      <input type="text" name="surname" id="surname" />
-    </div>
-    <div class="contact-field">
-      <label for="message">Upit</label>
-      <textarea name="message" id="message" cols="30" rows="10"></textarea>
-    </div>
-    <button type="submit">Pošalji</button>
-  </form>
+<div class="contact-section">
+  <div class="wrapper">
+    <form id="contact-form">
+      <h2 class="text-xl-semibold">Kontaktirajte nas</h2>
+      <div class="contact-field">
+        <label class="text-m-medium" for="name">Ime</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="contact-field">
+        <label class="text-m-medium" for="mail">E-mail</label>
+        <input type="email" name="mail" id="mail" />
+      </div>
+      <div class="contact-field">
+        <label class="text-m-medium" for="message">Upit</label>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit">
+        <span class="text-r-semibold">POŠALJI</span>
+      </button>
+    </form>
+  </div>
 </div>
 
 <style>
-  .contact-form-wrapper {
-    padding: 100px;
+  .contact-section {
+    padding-block: 96px;
   }
+
+  .wrapper {
+    max-width: 550px;
+    margin-inline: auto;
+  }
+
   #contact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: 600px;
+    gap: 24px;
   }
+
   .contact-field {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
   }
+
   .contact-field input,
   .contact-field textarea {
     width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0deg 0% 27.15%);
+    border-radius: 6px;
+    padding: 4px 8px;
   }
+
   button {
-    width: 100%;
-    padding: 5px 30px;
+    width: fit-content;
+    padding: 16px 24px;
+    border-radius: 8px;
+    border: 2px solid #9aa583;
+    background: #c5d89c;
   }
 </style>
 
 <script>
-  const form = document.getElementById("contact-form")!;
+  const form = document.getElementById('contact-form')!;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = (document.getElementById("name") as HTMLInputElement).value;
-    const surname = (document.getElementById("surname") as HTMLInputElement).value;
-    const message = (document.getElementById("message") as HTMLInputElement).value;
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const surname = (document.getElementById('surname') as HTMLInputElement).value;
+    const message = (document.getElementById('message') as HTMLInputElement).value;
 
     alert(JSON.stringify({ name, surname, message }));
   });
