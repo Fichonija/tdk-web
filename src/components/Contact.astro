@@ -1,20 +1,20 @@
 <div class="contact-section">
   <div class="wrapper">
-    <form id="contact-form">
+    <form id="contact-form" action="/.netlify/functions/sendContactEmail">
       <h2 class="text-xl-semibold">Kontaktirajte nas</h2>
       <div class="contact-field">
         <label class="text-m-medium" for="name">Ime</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" required />
       </div>
       <div class="contact-field">
-        <label class="text-m-medium" for="mail">E-mail</label>
-        <input type="email" name="mail" id="mail" />
+        <label class="text-m-medium" for="email">E-mail</label>
+        <input type="email" name="email" id="email" required />
       </div>
       <div class="contact-field">
         <label class="text-m-medium" for="message">Upit</label>
-        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
       </div>
-      <button type="submit">
+      <button type="submit" name="submit">
         <span class="text-r-semibold">POŠALJI</span>
       </button>
     </form>
@@ -55,24 +55,66 @@
   }
 
   button {
+    cursor: pointer;
     width: fit-content;
     padding: 16px 24px;
     border-radius: 8px;
     border: 2px solid #9aa583;
     background: #c5d89c;
   }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
 </style>
 
 <script>
-  const form = document.getElementById('contact-form')!;
+  const form = document.getElementById('contact-form') as HTMLFormElement;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const surname = (document.getElementById('surname') as HTMLInputElement).value;
-    const message = (document.getElementById('message') as HTMLInputElement).value;
+    setButtonSendingState();
 
-    alert(JSON.stringify({ name, surname, message }));
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLInputElement).value;
+
+    let fetchUrl = form.action;
+    let fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, message }),
+    };
+
+    let response = await fetch(fetchUrl, fetchOptions);
+    let responseStatus = response.status;
+
+    if (responseStatus !== 200) {
+      let responseBody = await response.json();
+      alert("Došlo je do pogreške prilikom slanja podataka: '" + responseBody + "'");
+    }
+
+    setButtonInitialState();
   });
+
+  function setButtonSendingState() {
+    const buttonEl = form.elements.namedItem('submit') as HTMLButtonElement;
+    buttonEl.disabled = true;
+    buttonEl.style.backgroundColor = '#afafaf';
+
+    const textEl = buttonEl.firstElementChild as HTMLSpanElement;
+    textEl.innerText = 'SLANJE...';
+  }
+
+  function setButtonInitialState() {
+    const buttonEl = form.elements.namedItem('submit') as HTMLButtonElement;
+    buttonEl.disabled = false;
+    buttonEl.style.backgroundColor = '#c5d89c';
+
+    const textEl = buttonEl.firstElementChild as HTMLSpanElement;
+    textEl.innerText = 'POŠALJI';
+  }
 </script>
