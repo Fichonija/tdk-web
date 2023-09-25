@@ -1,21 +1,21 @@
 <div class="contact-section">
   <div class="wrapper">
+    <h2 class="heading">Kontaktirajte nas</h2>
     <form id="contact-form" action="/.netlify/functions/sendContactEmail">
-      <h2 class="text-xl-semibold">Kontaktirajte nas</h2>
       <div class="contact-field">
-        <label class="text-m-medium" for="name">Ime</label>
+        <label class="label" for="name">Ime</label>
         <input type="text" name="name" id="name" required />
       </div>
       <div class="contact-field">
-        <label class="text-m-medium" for="email">E-mail</label>
+        <label class="label" for="email">E-mail</label>
         <input type="email" name="email" id="email" required />
       </div>
       <div class="contact-field">
-        <label class="text-m-medium" for="message">Upit</label>
+        <label class="label" for="message">Upit</label>
         <textarea name="message" id="message" cols="30" rows="10" required></textarea>
       </div>
       <button type="submit" name="submit">
-        <span class="text-r-semibold">POŠALJI</span>
+        <span class="label">POŠALJI</span>
       </button>
     </form>
   </div>
@@ -23,18 +23,33 @@
 
 <style>
   .contact-section {
-    padding-block: 96px;
+    padding: 64px 32px;
   }
 
   .wrapper {
     max-width: 550px;
     margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .heading {
+    font-family: 'Montserrat Semibold';
+    font-size: var(--xl-font-size);
+    line-height: var(--xl-line-height);
+  }
+
+  .label {
+    font-family: 'Montserrat Medium';
+    font-size: var(--m-font-size);
+    line-height: var(--m-line-height);
   }
 
   #contact-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
   }
 
   .contact-field {
@@ -65,6 +80,36 @@
 
   button:disabled {
     cursor: not-allowed;
+  }
+
+  @media all and (max-width: 360px) {
+    .contact-section {
+      padding: 32px 16px;
+    }
+
+    .heading {
+      font-size: var(--l-font-size);
+      line-height: var(--l-line-height);
+    }
+
+    .label {
+      font-size: var(--r-font-size);
+      line-height: var(--r-line-height);
+    }
+
+    .wrapper {
+      gap: 18px;
+    }
+
+    #contact-form {
+      gap: 16px;
+    }
+
+    button {
+      padding: 8px 16px;
+      width: 100%;
+      border-radius: 8px;
+    }
   }
 </style>
 
