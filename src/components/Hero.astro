@@ -1,22 +1,38 @@
 ---
-import Logo from './logo/Logo.astro';
+import Logo from './Logo.astro';
 ---
 
 <div class="hero">
   <div class="content">
-    <Logo width={128} />
-    <h1 class="text-xxxl-bold">Tvornica Drvenih Konstrukcija</h1>
+    <div class="logo"><Logo /></div>
+    <h1 class="heading">Tvornica Drvenih Konstrukcija</h1>
     <div class="contact">
-      <a class="text-l-medium" href="mailto:tvornicadrvenihkonstrukcija@gmail.com">
-        mail: tvornicadrvenihkonstrukcija@gmail.com
-      </a>
-      <a class="text-l-medium" href="tel:0959236708">tel: +385 95 9236 708</a>
+      <a class="link" href="mailto:tvornicadrvenihkonstrukcija@gmail.com"> tvornicadrvenihkonstrukcija@gmail.com</a>
+      <a class="link" href="tel:0959236708">+385 95 9236 708</a>
     </div>
   </div>
   <div class="overlay"></div>
 </div>
 
 <style>
+  .heading {
+    /* text-xxxl-semibold */
+    font-family: 'Montserrat Semibold';
+    font-size: var(--xxxl-font-size);
+    line-height: var(--xxxl-line-height);
+  }
+
+  .link {
+    /* text-l-medium */
+    font-family: 'Montserrat Medium';
+    font-size: var(--l-font-size);
+    line-height: var(--l-line-height);
+  }
+
+  .logo {
+    width: 128px;
+  }
+
   .hero {
     height: 100vh;
     position: relative;
@@ -59,5 +75,41 @@ import Logo from './logo/Logo.astro';
   a {
     color: white;
     text-decoration: none;
+  }
+
+  @media all and (max-width: 768px) {
+    .heading {
+      font-size: var(--xxl-font-size);
+      line-height: var(--xxl-line-height);
+    }
+
+    .link {
+      font-size: var(--m-font-size);
+      line-height: var(--m-line-height);
+    }
+
+    .hero {
+      padding-inline: 16px;
+    }
+  }
+
+  @media all and (max-width: 500px) {
+    .heading {
+      font-size: var(--xl-font-size);
+      line-height: var(--xl-line-height);
+    }
+
+    .link {
+      font-size: var(--r-font-size);
+      line-height: var(--r-line-height);
+    }
+
+    .logo {
+      width: 96px;
+    }
+
+    .hero {
+      padding-inline: 8px;
+    }
   }
 </style>
