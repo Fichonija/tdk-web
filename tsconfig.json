@@ -1,4 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "compilerOptions": { "esModuleInterop": true }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "esModuleInterop": true
+  }
 }
