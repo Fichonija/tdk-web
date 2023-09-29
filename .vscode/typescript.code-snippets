@@ -1,0 +1,31 @@
+{
+  "Sandbox page": {
+    "prefix": "sandbox",
+    "body": [
+      "---",
+      "import Layout from '~/shared/Layout.astro';",
+      "import { Input } from '~/ui/components';",
+      "---",
+      "",
+      "<Layout title=\"sandbox\">",
+      "  <div style={{ height: '100vh' }}>",
+      "    <div",
+      "      style={{",
+      "        display: 'flex',",
+      "        flexDirection: 'column',",
+      "        width: '600px',",
+      "        gap: '24px',",
+      "        margin: '128px auto',",
+      "        alignItems: 'center',",
+      "      }}",
+      "    >",
+      "      <div>Sandbox Page</div>",
+      "      <div><Input /></div>",
+      "    </div>",
+      "  </div>",
+      "</Layout>",
+      ""
+    ],
+    "description": "Sandbox page"
+  }
+}
