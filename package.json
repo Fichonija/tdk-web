@@ -13,15 +13,16 @@
     "typecheck:astro": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.0",
     "astro": "^3.0.10",
     "form-data": "^4.0.0",
     "mailgun.js": "^9.3.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.2.0",
     "@netlify/functions": "^2.0.2",
     "@types/node": "^20.6.5",
+    "csstype": "^3.1.2",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
   }
