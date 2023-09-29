@@ -39,7 +39,19 @@ export const Button = ({ text, onClick, isDisabled, ...rest }: Props) => {
       }}
       {...rest}
     >
-      {text}
+      <span
+        style={{
+          fontFamily: 'Montserrat Medium',
+          fontSize: 'var(--m-font-size)',
+          lineHeight: 'var(--m-line-height)',
+          ...(matches && {
+            fontSize: 'var(--r-font-size)',
+            lineHeight: 'var(--r-line-height)',
+          }),
+        }}
+      >
+        {text}
+      </span>
     </button>
   );
 };
