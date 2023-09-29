@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "typecheck": "tsc --noEmit",
     "dev:functions": "netlify functions:serve",
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "typecheck": "tsc --noEmit",
+    "typecheck:astro": "astro check"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
