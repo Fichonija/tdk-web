@@ -11,7 +11,7 @@ interface Props {
 
 const { default: innerHTML } = await import(`../../assets/icons/${Astro.props.icon}.svg?raw`);
 
-const { color = 'white', size = 'm' } = Astro.props;
+const { color = 'currentColor', size = 'm' } = Astro.props;
 ---
 
 <div style={{ color, width: sizesMap[size] }}>
