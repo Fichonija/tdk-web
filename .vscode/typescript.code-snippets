@@ -27,5 +27,17 @@
       ""
     ],
     "description": "Sandbox page"
+  },
+  "Component": {
+    "prefix": "component",
+    "body": [
+      "interface Props {}",
+      "",
+      "export const ${0:Component} = (props: Props) => {",
+      "  return <div>hello from ${0:Component} component!</div>;",
+      "};",
+      ""
+    ],
+    "description": "Component"
   }
 }
