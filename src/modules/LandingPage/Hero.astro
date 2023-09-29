@@ -1,5 +1,7 @@
 ---
 import Logo from '~/ui/components/Logo.astro';
+import { Image } from 'astro:assets';
+import HeroImg from '~/ui/assets/images/hero.webp';
 ---
 
 <div class="hero">
@@ -11,6 +13,7 @@ import Logo from '~/ui/components/Logo.astro';
       <a class="link" href="tel:0959236708">+385 95 9236 708</a>
     </div>
   </div>
+  <Image src={HeroImg} alt={''} class="hero-image" />
   <div class="overlay"></div>
 </div>
 
@@ -36,13 +39,16 @@ import Logo from '~/ui/components/Logo.astro';
   .hero {
     height: 100vh;
     position: relative;
-    background-image: url(/hero.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
     display: flex;
     justify-content: center;
     padding-inline: 64px;
+  }
+
+  .hero-image {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 
   .content {
