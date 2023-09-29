@@ -13,7 +13,7 @@ type Props = InputAttributes & {
 export const Input = ({ label, ...rest }: Props) => {
   if (label !== undefined) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <Label label={label} name={rest.name} />
         <InputComponent {...rest} />
       </div>

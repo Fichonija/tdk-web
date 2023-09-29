@@ -13,7 +13,7 @@ type Props = TextareaAttributes & {
 export const Textarea = ({ label, ...rest }: Props) => {
   if (label !== undefined) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <Label label={label} name={rest.name} />
         <TextareaComponent {...rest} />
       </div>
