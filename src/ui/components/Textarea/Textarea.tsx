@@ -1,12 +1,13 @@
 import { type TextareaHTMLAttributes } from 'react';
 import { Label } from '../Input';
 
-type TextareaProps = Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'required' | 'name'>;
+type TextareaAttributes = Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'required' | 'name'>;
 
-type Props = TextareaProps & {
+type Props = TextareaAttributes & {
   value: string;
   onChange: (val: string) => void;
   label?: string;
+  isDisabled?: boolean;
 };
 
 export const Textarea = ({ label, ...rest }: Props) => {
@@ -22,9 +23,10 @@ export const Textarea = ({ label, ...rest }: Props) => {
   return <TextareaComponent {...rest} />;
 };
 
-const TextareaComponent = ({ value, onChange, ...rest }: Props) => {
+const TextareaComponent = ({ value, onChange, isDisabled, ...rest }: Omit<Props, 'label'>) => {
   return (
     <textarea
+      disabled={isDisabled}
       value={value}
       onChange={(e) => onChange(e.target.value)}
       cols={30}

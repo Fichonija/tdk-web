@@ -1,13 +1,14 @@
 import { useEffect, useState, type ButtonHTMLAttributes } from 'react';
 
-type ButtonProps = Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'name'>;
+type ButtonAttributes = Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'name'>;
 
-type Props = ButtonProps & {
+type Props = ButtonAttributes & {
   text: string;
   onClick?: () => void;
+  isDisabled?: boolean;
 };
 
-export const Button = ({ text, onClick, ...rest }: Props) => {
+export const Button = ({ text, onClick, isDisabled, ...rest }: Props) => {
   //todo replace matching logic with theming ASAP
   const [matches, setMatches] = useState(false);
 
@@ -22,13 +23,14 @@ export const Button = ({ text, onClick, ...rest }: Props) => {
   return (
     <button
       onClick={onClick}
+      disabled={isDisabled}
       style={{
-        cursor: 'pointer',
+        cursor: isDisabled ? 'auto' : 'pointer',
         width: 'fit-content',
         padding: '16px 24px',
         borderRadius: '8px',
         border: '2px solid #9aa583',
-        background: '#c5d89c',
+        background: isDisabled ? '#afafaf' : '#c5d89c',
         ...(matches && {
           padding: '8px 16px',
           width: '100%',
