@@ -1,12 +1,12 @@
 ---
-import Logo from '~/ui/components/Logo.astro';
+import { Icon } from '~/ui/components';
 import { Image } from 'astro:assets';
 import HeroImg from '~/ui/assets/images/hero.webp';
 ---
 
 <div class="hero">
   <div class="content">
-    <div class="logo"><Logo /></div>
+    <Icon size="xl" icon="logo" />
     <h1 class="heading">Tvornica Drvenih Konstrukcija</h1>
     <div class="contact">
       <a class="link" href="mailto:tvornicadrvenihkonstrukcija@gmail.com"> tvornicadrvenihkonstrukcija@gmail.com</a>
@@ -30,10 +30,6 @@ import HeroImg from '~/ui/assets/images/hero.webp';
     font-family: 'Montserrat Medium';
     font-size: var(--l-font-size);
     line-height: var(--l-line-height);
-  }
-
-  .logo {
-    width: 128px;
   }
 
   .hero {
