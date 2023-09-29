@@ -5,6 +5,8 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
