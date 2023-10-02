@@ -2,44 +2,15 @@
 import { ContactForm } from './ContactForm';
 ---
 
-<div class="contact-section">
-  <div class="wrapper">
-    <h2 class="heading">Kontaktirajte nas</h2>
+<div class="py-8 px-4 md:py-16">
+  <div class="max-w-xl mx-auto flex flex-col gap-5 md:gap-6">
+    <h2 class="heading text-2xl md:text-3xl">Kontaktirajte nas</h2>
     <ContactForm client:idle />
   </div>
 </div>
 
 <style>
-  .contact-section {
-    padding: 64px 32px;
-  }
-
-  .wrapper {
-    max-width: 550px;
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
   .heading {
     font-family: 'Montserrat Semibold';
-    font-size: var(--xl-font-size);
-    line-height: var(--xl-line-height);
-  }
-
-  @media all and (max-width: 768px) {
-    .contact-section {
-      padding: 32px 16px;
-    }
-
-    .heading {
-      font-size: var(--l-font-size);
-      line-height: var(--l-line-height);
-    }
-
-    .wrapper {
-      gap: 18px;
-    }
   }
 </style>
