@@ -4,110 +4,27 @@ import { Image } from 'astro:assets';
 import HeroImg from '~/ui/assets/images/hero.webp';
 ---
 
-<div class="hero">
-  <div class="content">
+<div class="h-screen relative flex justify-center px-2 md:px-4 lg:px-16">
+  <div class="z-10 flex flex-col justify-center items-center gap-4 text-center text-white">
     <Icon size="xl" icon="logo" />
-    <h1 class="heading">Tvornica Drvenih Konstrukcija</h1>
-    <div class="contact">
-      <a class="link" href="mailto:tvornicadrvenihkonstrukcija@gmail.com"> tvornicadrvenihkonstrukcija@gmail.com</a>
-      <a class="link" href="tel:0959236708">+385 95 9236 708</a>
+    <h1 class="text-3xl md:text-5xl lg:text-6xl">Tvornica Drvenih Konstrukcija</h1>
+    <div class="flex flex-col gap-3 text-start">
+      <a class="text-base md:text-xl lg:text-2xl" href="mailto:tvornicadrvenihkonstrukcija@gmail.com">
+        tvornicadrvenihkonstrukcija@gmail.com</a
+      >
+      <a class="text-base md:text-xl lg:text-2xl" href="tel:0959236708">+385 95 9236 708</a>
     </div>
   </div>
-  <Image src={HeroImg} alt={''} class="hero-image" />
-  <div class="overlay"></div>
+  <Image src={HeroImg} alt={''} class="absolute top-0 left-0 w-full h-full object-cover" />
+  <div class="absolute top-0 left-0 w-full h-full bg-black/30"></div>
 </div>
 
 <style>
-  .heading {
-    /* text-xxxl-semibold */
+  h1 {
     font-family: 'Montserrat Semibold';
-    font-size: var(--xxxl-font-size);
-    line-height: var(--xxxl-line-height);
-  }
-
-  .link {
-    /* text-l-medium */
-    font-family: 'Montserrat Medium';
-    font-size: var(--l-font-size);
-    line-height: var(--l-line-height);
-  }
-
-  .hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding-inline: 64px;
-  }
-
-  .hero-image {
-    object-fit: cover;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .content {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    text-align: center;
-    color: white;
-  }
-
-  .overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
   }
 
   a {
-    color: white;
-    text-decoration: none;
-  }
-
-  @media all and (max-width: 1080px) {
-    .heading {
-      font-size: var(--xxl-font-size);
-      line-height: var(--xxl-line-height);
-    }
-
-    .link {
-      font-size: var(--m-font-size);
-      line-height: var(--m-line-height);
-    }
-
-    .hero {
-      padding-inline: 16px;
-    }
-  }
-
-  @media all and (max-width: 768px) {
-    .heading {
-      font-size: var(--xl-font-size);
-      line-height: var(--xl-line-height);
-    }
-
-    .link {
-      font-size: var(--r-font-size);
-      line-height: var(--r-line-height);
-    }
-
-    .hero {
-      padding-inline: 8px;
-    }
+    font-family: 'Montserrat Medium';
   }
 </style>
