@@ -3,7 +3,7 @@ import { useState, type FormEvent } from 'react';
 import { Button, Input, Textarea } from '~/ui/components';
 import { isDev } from '~/utils/env';
 
-const CONTACT_FUNCTION_PATH = 'http://localhost:9999/.netlify/functions/sendContactEmail';
+const CONTACT_FUNCTION_PATH = `${isDev ? 'http://localhost:9999' : ''}/.netlify/functions/sendContactEmail`;
 const FETCH_OPTIONS: RequestInit = {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-5">
       <Input
         label="Ime"
         name="name"
