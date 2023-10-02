@@ -21,9 +21,7 @@ export const Button = ({ text, onClick, isDisabled, ...rest }: Props) => {
       }
       {...rest}
     >
-      <span className="text-base md:text-xl" style={{ fontFamily: 'Montserrat Medium' }}>
-        {text}
-      </span>
+      <span className="font-display font-medium text-base md:text-xl">{text}</span>
     </button>
   );
 };

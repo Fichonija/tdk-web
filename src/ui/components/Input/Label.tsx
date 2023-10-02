@@ -5,7 +5,7 @@ interface Props {
 
 export const Label = ({ label, name }: Props) => {
   return (
-    <label htmlFor={name} className="text-base md:text-xl" style={{ fontFamily: 'Montserrat Medium' }}>
+    <label htmlFor={name} className="font-display font-medium text-base md:text-xl">
       {label}
     </label>
   );
