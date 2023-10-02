@@ -13,7 +13,7 @@ type Props = TextareaAttributes & {
 export const Textarea = ({ label, ...rest }: Props) => {
   if (label !== undefined) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="flex flex-col gap-3">
         <Label label={label} name={rest.name} />
         <TextareaComponent {...rest} />
       </div>
@@ -31,12 +31,7 @@ const TextareaComponent = ({ value, onChange, isDisabled, ...rest }: Omit<Props,
       onChange={(e) => onChange(e.target.value)}
       cols={30}
       rows={10}
-      style={{
-        width: '100%',
-        border: '1px solid hsl(0deg 0% 27.15%)',
-        borderRadius: '6px',
-        padding: '4px 8px',
-      }}
+      className="w-full py-1 px-2 border border-solid border-[#454545] rounded-md"
       {...rest}
     ></textarea>
   );
