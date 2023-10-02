@@ -13,7 +13,7 @@ type Props = InputAttributes & {
 export const Input = ({ label, ...rest }: Props) => {
   if (label !== undefined) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="flex flex-col gap-3">
         <Label label={label} name={rest.name} />
         <InputComponent {...rest} />
       </div>
@@ -29,12 +29,7 @@ const InputComponent = ({ value, onChange, isDisabled, ...rest }: Omit<Props, 'l
       value={value}
       onChange={(e) => onChange(e.target.value)}
       disabled={isDisabled}
-      style={{
-        width: '100%',
-        border: '1px solid hsl(0deg 0% 27.15%)',
-        borderRadius: '6px',
-        padding: '4px 8px',
-      }}
+      className="w-full py-1 px-2 border border-solid border-[#454545] rounded-md"
       {...rest}
     />
   );
