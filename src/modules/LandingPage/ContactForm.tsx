@@ -1,9 +1,10 @@
 import { HttpStatusCode } from 'axios';
 import { useState, type FormEvent } from 'react';
-import { Button, Input, Textarea } from '~/ui/components';
+import { InputWithLabels, TextareaWithLabels } from '~/shared/form';
+import { Button } from '~/ui/components';
 import { isDev } from '~/utils/env';
 
-const CONTACT_FUNCTION_PATH = 'http://localhost:9999/.netlify/functions/sendContactEmail';
+const CONTACT_FUNCTION_PATH = `${isDev ? 'http://localhost:9999' : ''}/.netlify/functions/sendContactEmail`;
 const FETCH_OPTIONS: RequestInit = {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
@@ -33,15 +34,15 @@ export const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-      <Input
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-5">
+      <InputWithLabels
         label="Ime"
         name="name"
         value={values.name}
         onChange={(name) => setValues((prevValues) => ({ ...prevValues, name }))}
         required
       />
-      <Input
+      <InputWithLabels
         label="E-mail"
         type="email"
         name="email"
@@ -49,7 +50,7 @@ export const ContactForm = () => {
         onChange={(email) => setValues((prevValues) => ({ ...prevValues, email }))}
         required
       />
-      <Textarea
+      <TextareaWithLabels
         label="Upit"
         name="message"
         value={values.message}
