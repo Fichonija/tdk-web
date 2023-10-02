@@ -29,7 +29,7 @@ const InputComponent = ({ value, onChange, isDisabled, ...rest }: Omit<Props, 'l
       value={value}
       onChange={(e) => onChange(e.target.value)}
       disabled={isDisabled}
-      className="w-full py-1 px-2 border border-solid border-[#454545] rounded-md"
+      className="w-full border border-solid border-[#454545] rounded-md"
       {...rest}
     />
   );

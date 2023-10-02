@@ -17,7 +17,7 @@ export const Button = ({ text, onClick, isDisabled, ...rest }: Props) => {
         'py-2 px-4 md:py-4 md:px-8 ' +
         'border-2 border-solid border-[#9aa583] rounded-lg ' +
         'bg-[#c5d89c] disabled:bg-[#afafaf] ' +
-        'cursor-pointer disabled:cursor-auto '
+        'disabled:cursor-auto'
       }
       {...rest}
     >

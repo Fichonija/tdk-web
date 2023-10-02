@@ -31,7 +31,7 @@ const TextareaComponent = ({ value, onChange, isDisabled, ...rest }: Omit<Props,
       onChange={(e) => onChange(e.target.value)}
       cols={30}
       rows={10}
-      className="w-full py-1 px-2 border border-solid border-[#454545] rounded-md"
+      className="w-full border border-solid border-[#454545] rounded-md"
       {...rest}
     ></textarea>
   );
