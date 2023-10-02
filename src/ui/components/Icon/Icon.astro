@@ -1,19 +1,15 @@
 ---
 import type { IconType } from '../../assets/icons';
-import type * as CSS from 'csstype';
-import { sizesMap } from './sizes';
 
 interface Props {
   icon: IconType;
-  color?: CSS.Property.Color;
-  size?: keyof typeof sizesMap;
+  className?: string;
 }
 
 const { default: innerHTML } = await import(`../../assets/icons/${Astro.props.icon}.svg?raw`);
-
-const { color = 'current', size = 'm' } = Astro.props;
+const { className } = Astro.props;
 ---
 
-<div class={`text-${color} w-${sizesMap[size]}`}>
+<div class={className}>
   <Fragment set:html={innerHTML} />
 </div>
