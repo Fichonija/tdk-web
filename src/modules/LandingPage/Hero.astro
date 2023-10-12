@@ -1,0 +1,22 @@
+---
+import { Icon } from '~/ui/components';
+import { Image } from 'astro:assets';
+import HeroImg from '~/ui/assets/images/hero.webp';
+---
+
+<div class="h-screen relative text-neutral-200">
+  <Image src={HeroImg} alt={''} class="absolute top-0 left-0 w-full h-full object-cover" />
+  <div class="absolute top-0 left-0 w-full h-full bg-black/30"></div>
+  <div
+    class={'absolute top-0 ' +
+      'w-full py-4 px-4 lg:px-16 ' +
+      'flex flex-col flex-wrap gap-3 ' +
+      'font-display font-medium text-l md:text-xl lg:text-2xl'}
+  >
+    <a href="mailto:tvornicadrvenihkonstrukcija@gmail.com"> tvornicadrvenihkonstrukcija@gmail.com</a>
+    <a href="tel:0959236708">+385 95 9236 708</a>
+  </div>
+  <div class="relative w-full h-full px-4 flex">
+    <Icon className="m-auto w-[32rem]" icon="logo_text" />
+  </div>
+</div>

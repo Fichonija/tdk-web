@@ -1,0 +1,15 @@
+---
+import type { IconType } from '../../assets/icons';
+
+interface Props {
+  icon: IconType;
+  className?: string;
+}
+
+const { default: innerHTML } = await import(`../../assets/icons/${Astro.props.icon}.svg?raw`);
+const { className } = Astro.props;
+---
+
+<div class={className}>
+  <Fragment set:html={innerHTML} />
+</div>
