@@ -2,4 +2,4 @@
 // eg. `logo.svg` => IconType = ... | 'logo'
 // in the svg file set width, height = 100%, and fill = currentColor
 
-export type IconType = 'logo';
+export type IconType = 'logo' | 'logo_text';
