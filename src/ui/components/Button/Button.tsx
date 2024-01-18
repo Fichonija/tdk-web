@@ -1,27 +1,33 @@
-import { type ButtonHTMLAttributes } from 'react';
+import clsx from 'clsx';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
 
 type ButtonAttributes = Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'name'>;
+type LinkAttributes = Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
 
-type Props = ButtonAttributes & {
-  text: string;
-  onClick?: () => void;
-  isDisabled?: boolean;
-};
-export const Button = ({ text, onClick, isDisabled, ...rest }: Props) => {
+type Props = ButtonAttributes &
+  LinkAttributes & {
+    as?: 'button' | 'a';
+    text: string;
+    isDisabled?: boolean;
+    isFullWidth?: boolean;
+    onClick?: () => void;
+  };
+
+//todo add support for icons
+// option 1. forward icon via slot?
+export const Button = ({ as = 'button', text, isDisabled, isFullWidth, onClick, ...rest }: Props) => {
+  const Component = as;
   return (
-    <button
+    <Component
       onClick={onClick}
       disabled={isDisabled}
-      className={
-        'w-full md:w-fit ' +
-        'py-2 px-4 md:py-4 md:px-8 ' +
-        'border-2 border-solid border-[#9aa583] rounded-lg ' +
-        'bg-[#c5d89c] disabled:bg-[#afafaf] ' +
-        'disabled:cursor-auto'
-      }
+      className={clsx(
+        isFullWidth ? 'w-full' : 'md:w-fit',
+        'py-2 px-4 rounded-sm bg-[#4B7254] disabled:bg-[#afafaf] disabled:cursor-auto',
+      )}
       {...rest}
     >
-      <span className="font-display font-medium text-base md:text-xl">{text}</span>
-    </button>
+      <span className="font-sansation font-normal text-base text-gray-50">{text}</span>
+    </Component>
   );
 };
