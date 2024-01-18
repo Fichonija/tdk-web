@@ -6,14 +6,15 @@ import { isDev, localBasePath, prodDevPath } from '~/utils/env';
 const basePath = isDev ? localBasePath : prodDevPath;
 ---
 
-<nav class="px-10 py-4 flex justify-between items-center bg-gray-100 font-sansation">
-  <a class="flex gap-4 items-center" href={basePath}
-    ><Icon icon="logo" className="h-[40px] text-[#4B7254]" /><span class="font-normal text-lg uppercase text-gray-700"
-      >Tvornica Drvenih Konstrukcija</span
-    ></a
-  >
-  <ul class="flex gap-8 list-none font-light text-lg">
-    <NavigationItem href={`${basePath}/#products`}>Proizvodi</NavigationItem>
-    <NavigationItem href={`${basePath}/#contact`}>Kontakt</NavigationItem>
-  </ul>
-</nav>
+<header>
+  <nav class="px-10 py-4 flex justify-between items-center bg-gray-100 font-sansation">
+    <a class="flex gap-4 items-center" href={basePath}>
+      <Icon icon="logo" className="h-[40px] text-[#4B7254]" />
+      <h1 class="font-normal text-lg uppercase text-gray-700">Tvornica Drvenih Konstrukcija</h1>
+    </a>
+    <ul class="flex gap-8 list-none font-light text-lg">
+      <NavigationItem href={`${basePath}/#products`}>Proizvodi</NavigationItem>
+      <NavigationItem href={`${basePath}/#contact`}>Kontakt</NavigationItem>
+    </ul>
+  </nav>
+</header>
