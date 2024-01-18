@@ -10,4 +10,18 @@
     font-style: normal;
     font-display: swap;
   }
+  @font-face {
+    font-family: 'Sansation';
+    src: url('/fonts/sansation-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Sansation';
+    src: url('/fonts/sansation-regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
 }
