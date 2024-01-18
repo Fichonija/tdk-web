@@ -1,0 +1,25 @@
+---
+import ProductCard from './ProductCard.astro';
+import GazeeboSectionImg from '~/ui/assets/images/gazeebo-section.png';
+import TreehouseSectionImg from '~/ui/assets/images/treehouse-section.png';
+import StatementSeparator from './StatementSeparator.astro';
+---
+
+<section id="products">
+  <ProductCard
+    imgSrc={GazeeboSectionImg}
+    imgAlt="Primjer izgleda nadstrešnice"
+    title="Nadstrešnice, pergole i sjenice"
+    description="Izrađujemo nadstrešnice, pergole i sjenice od najkvalitetnijeg drva"
+    href="#contact"
+  />
+  <StatementSeparator />
+  <ProductCard
+    imgSrc={TreehouseSectionImg}
+    imgAlt="Primjer izgleda kućice na stablu"
+    title="Kućice na stablu"
+    description="Iznimno smo ponosni na kućice na stablu koje izrađujemo po mjeri"
+    href="#contact"
+    isReverse
+  />
+</section>
