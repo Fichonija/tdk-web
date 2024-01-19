@@ -1,3 +1,3 @@
 export const isDev = import.meta.env.DEV;
-export const localBasePath = 'http://localhost:8080';
-export const prodDevPath = 'https://tdk.hr';
+export const localOrigin = 'http://localhost:8080';
+export const productionOrigin = 'https://tdk.hr';
