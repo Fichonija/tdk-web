@@ -5,19 +5,15 @@ import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';
 ---
 
-<div id="contact">
+<section id="contact" class="bg-[#CFCBBF]">
   <ContactLinks />
-  <div class="flex">
-    <div class="w-3/5 px-20 pt-10 pb-20 flex-1 flex flex-col items-center gap-8 bg-[#CFCBBF]">
+  <section class="max-w-[2056px] mx-auto flex gap-20">
+    <div class="w-3/5 pl-20 pt-10 pb-20 flex-1 flex flex-col gap-8">
       <div class="w-full max-w-5xl margin-auto">
         <h3 class="font-sansation font-light text-2xl text-gray-900">Pošalji poruku</h3>
         <ContactForm client:idle />
       </div>
     </div>
-    <Image
-      src={ContactImg}
-      alt={'Radionica s alatima'}
-      class="hidden lg:max-2xl:block w-2/5 max-w-[600px] object-cover"
-    />
-  </div>
-</div>
+    <Image src={ContactImg} alt={'Radionica s alatima'} class="hidden lg:block w-2/5 max-w-[600px] object-cover" />
+  </section>
+</section>
