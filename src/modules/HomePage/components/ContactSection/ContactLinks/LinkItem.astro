@@ -15,7 +15,7 @@ const fullHref = `${isEmail ? 'mailto' : 'tel'}:${href}`;
 
 <div class="flex items-center gap-4">
   <a class="w-[56px] h-[56px] p-2 rounded-full bg-[#4B7254] text-white" href={fullHref}><Icon icon={icon} /></a>
-  <div class="flex flex-col font-sansation text-xl">
+  <div class="flex flex-col font-sansation text-xl text-gray-800">
     <p class="font-bold">{isEmail ? 'Email' : 'Telefon'}:</p>
     <a href={fullHref}>{href}</a>
   </div>

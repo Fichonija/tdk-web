@@ -1,7 +1,17 @@
 ---
+import { Image } from 'astro:assets';
+import ContactImg from '~/ui/assets/images/contact.png';
+import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';
 ---
 
 <div id="contact">
   <ContactLinks />
+  <div class="flex">
+    <div class="w-3/5 px-20 pt-10 pb-20 flex flex-col gap-8 bg-[#CFCBBF]">
+      <h3 class="font-sansation font-light text-2xl text-gray-900">Pošalji poruku</h3>
+      <ContactForm client:idle />
+    </div>
+    <Image src={ContactImg} alt={'Radionica s alatima'} class="w-2/5 object-cover" />
+  </div>
 </div>

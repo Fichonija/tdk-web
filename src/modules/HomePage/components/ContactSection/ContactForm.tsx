@@ -11,7 +11,7 @@ const FETCH_OPTIONS: RequestInit = {
   mode: isDev ? 'no-cors' : undefined,
 };
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const [values, setValues] = useState({ name: '', email: '', message: '' });
   const [isSending, setIsSending] = useState(false);
 
@@ -34,30 +34,34 @@ export const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-5">
-      <InputWithLabels
-        label="Ime"
-        name="name"
-        value={values.name}
-        onChange={(name) => setValues((prevValues) => ({ ...prevValues, name }))}
-        required
-      />
-      <InputWithLabels
-        label="E-mail"
-        type="email"
-        name="email"
-        value={values.email}
-        onChange={(email) => setValues((prevValues) => ({ ...prevValues, email }))}
-        required
-      />
-      <TextareaWithLabels
-        label="Upit"
-        name="message"
-        value={values.message}
-        onChange={(message) => setValues((prevValues) => ({ ...prevValues, message }))}
-        required
-      />
-      <Button type="submit" text={isSending ? 'SLANJE...' : 'POŠALJI'} isDisabled={isSending} />
+    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
+      <div className="flex flex-col gap-6">
+        <InputWithLabels
+          label="Ime:"
+          name="name"
+          value={values.name}
+          onChange={(name) => setValues((prevValues) => ({ ...prevValues, name }))}
+          required
+        />
+        <InputWithLabels
+          label="Email:"
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={(email) => setValues((prevValues) => ({ ...prevValues, email }))}
+          required
+        />
+        <TextareaWithLabels
+          label="Poruka:"
+          name="message"
+          value={values.message}
+          onChange={(message) => setValues((prevValues) => ({ ...prevValues, message }))}
+          required
+        />
+      </div>
+      <Button type="submit" text={isSending ? 'Slanje...' : 'Pošalji'} isDisabled={isSending} />
     </form>
   );
 };
+
+export default ContactForm;
