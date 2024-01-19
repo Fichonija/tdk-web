@@ -16,7 +16,7 @@ export const Textarea = ({ value, onChange, isDisabled, ...rest }: Props) => {
       onChange={(e) => onChange(e.target.value)}
       cols={30}
       rows={10}
-      className="w-full border border-solid border-[#454545] rounded-md"
+      className="w-full rounded border-none"
       {...rest}
     ></textarea>
   );
