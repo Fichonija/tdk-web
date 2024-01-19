@@ -15,8 +15,11 @@ interface Props {
 const { imgSrc, imgAlt, title, description, href, isReverse } = Astro.props;
 ---
 
-<section class={clsx('flex h-96 w-full', isReverse && 'flex-row-reverse')}>
-  <Image src={imgSrc} alt={imgAlt} class="object-cover" />
+<!-- todo solve responsive flexing of children -->
+<section class={clsx('flex h-80 w-full', isReverse && 'flex-row-reverse')}>
+  <div class="flex-1">
+    <Image src={imgSrc} alt={imgAlt} class="h-full object-cover" />
+  </div>
   <div class="flex-1 py-12 px-28 bg-[#CFCBBF]">
     <div class="flex flex-col gap-12 justify-between font-sansation font-light">
       <h2 class="text-4xl text-gray-900">{title}</h2>
