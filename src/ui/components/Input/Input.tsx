@@ -14,7 +14,7 @@ export const Input = ({ value, onChange, isDisabled, ...rest }: Props) => {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       disabled={isDisabled}
-      className="w-full border border-solid border-[#454545] rounded-md"
+      className="w-full rounded border-none"
       {...rest}
     />
   );

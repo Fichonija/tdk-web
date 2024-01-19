@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         display: 'Montserrat',
+        sansation: 'Sansation',
       },
     },
   },
