@@ -4,10 +4,10 @@ import { Image } from 'astro:assets';
 import HeroImg from '~/ui/assets/images/hero.webp';
 ---
 
-<div class="relative h-[512px]">
+<div class="relative h-[768px]">
   <Image src={HeroImg} alt={''} class="absolute top-0 left-0 w-full h-full object-cover" />
   <div class="absolute top-0 left-0 w-full h-full bg-[#9A8ECB]/[.18]"></div>
-  <div class="absolute top-24 left-32 px-9 pt-2 pb-14 bg-[#314135]/[.56]">
-    <p class="max-w-md font-sansation text-6xl leading-tight text-gray-100">Drvo s dušom, konstrukcije s karakterom</p>
+  <div class="relative w-full h-full px-4 flex">
+    <Icon className="m-auto w-[30rem] text-white" icon="logoText" />
   </div>
 </div>
