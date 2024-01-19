@@ -22,7 +22,7 @@ export const Button = ({ as = 'button', text, isDisabled, isFullWidth, onClick, 
       onClick={onClick}
       disabled={isDisabled}
       className={clsx(
-        isFullWidth ? 'w-full' : 'md:w-fit',
+        isFullWidth ? 'w-full' : 'w-fit',
         'py-2 px-4 rounded bg-[#4B7254] disabled:bg-[#afafaf] disabled:cursor-auto',
       )}
       {...rest}

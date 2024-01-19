@@ -59,7 +59,9 @@ const ContactForm = () => {
           required
         />
       </div>
-      <Button type="submit" text={isSending ? 'Slanje...' : 'Pošalji'} isDisabled={isSending} />
+      <div className="w-full md:w-fit">
+        <Button type="submit" isFullWidth text={isSending ? 'Slanje...' : 'Pošalji'} isDisabled={isSending} />
+      </div>
     </form>
   );
 };

@@ -15,17 +15,16 @@ interface Props {
 const { imgSrc, imgAlt, title, description, href, isReverse } = Astro.props;
 ---
 
-<!-- todo solve responsive flexing of children -->
-<section class={clsx('max-h-80 flex justify-center', isReverse ? 'bg-white' : 'bg-[#CFCBBF]')}>
-  <div class={clsx('max-w-[2056px] flex gap-28', isReverse ? 'flex-row-reverse pl-28' : 'pr-28')}>
-    <div class="flex-1 max-w-5xl">
+<section class={clsx('md:max-h-80 flex justify-center', isReverse ? 'bg-white' : 'bg-[#CFCBBF]')}>
+  <div class={clsx('max-w-[2056px] flex flex-col', isReverse ? 'md:flex-row-reverse' : 'md:flex-row')}>
+    <div class="flex-1 max-w-5xl max-h-52 sm:max-h-72 md:max-h-80">
       <Image src={imgSrc} alt={imgAlt} class="h-full object-cover" />
     </div>
-    <div class="flex-1 py-12">
-      <div class="flex flex-col gap-12 justify-between font-sansation font-light">
-        <h2 class="text-4xl text-gray-900">{title}</h2>
-        <div class="flex flex-col gap-8">
-          <h3 class="text-2xl text-gray-800">{description}</h3>
+    <div class="flex-1 p-6 sm:p-10 lg:px-20">
+      <div class="flex flex-col gap-4 md:gap-6 lg:gap-12 justify-between font-sansation font-light">
+        <h2 class="text-xl md:text-2xl lg:text-3xl text-gray-900">{title}</h2>
+        <div class="flex flex-col gap-3 md:gap-6 lg:gap-8">
+          <h3 class="text-lg md:text-xl text-gray-800">{description}</h3>
           <Button as="a" href={href} text="Kontaktiraj me" />
         </div>
       </div>
