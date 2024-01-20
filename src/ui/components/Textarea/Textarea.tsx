@@ -1,6 +1,6 @@
 import { type TextareaHTMLAttributes } from 'react';
 
-type TextareaAttributes = Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'required' | 'name'>;
+type TextareaAttributes = Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'id' | 'required' | 'name'>;
 
 type Props = TextareaAttributes & {
   value: string;

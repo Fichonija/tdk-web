@@ -12,7 +12,7 @@ const withFieldLabels = <T extends any>(WrappedComponent: React.FC<T>) => {
       <label htmlFor={(rest as any).name} className="font-sansation text-lg md:text-xl text-gray-800">
         {label}
       </label>
-      <WrappedComponent {...(rest as any)} />
+      <WrappedComponent {...(rest as any)} id={(rest as any).name} />
     </div>
   );
 
