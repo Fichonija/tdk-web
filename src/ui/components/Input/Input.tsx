@@ -1,6 +1,6 @@
 import { type InputHTMLAttributes } from 'react';
 
-type InputAttributes = Pick<InputHTMLAttributes<HTMLInputElement>, 'type' | 'name' | 'required'>;
+type InputAttributes = Pick<InputHTMLAttributes<HTMLInputElement>, 'id' | 'type' | 'name' | 'required'>;
 
 type Props = InputAttributes & {
   value: string;

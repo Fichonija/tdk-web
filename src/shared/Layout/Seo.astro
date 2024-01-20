@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = `${canonicalUrl}images/og.png`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="“canonical”" href={canonicalUrl} />
+<meta content={title} property="og:title" />
+<meta content={description} property="og:description" />
+<meta content={canonicalUrl} property="og:url" />
+<meta content={ogImageUrl} property="og:image" />
+<meta content="website" property="og:type" />
+<meta content="Tvornica Drvenih Konstrukcija" property="og:site_name" />
+<meta content={'summary_large_image'} name="twitter:card" />
+<meta content={title} property="twitter:title" />
+<meta content={description} property="twitter:description" />
+<meta content={ogImageUrl} property="twitter:image" />
+<meta content={canonicalUrl} property="twitter:url" />

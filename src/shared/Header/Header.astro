@@ -7,11 +7,13 @@ const origin = isDev ? localOrigin : productionOrigin;
 const isHomePage = Astro.url.origin === origin;
 
 const basePath = isHomePage ? '' : `${origin}/`;
+
+const astroOrigin = Astro.url.origin;
 ---
 
 <header>
   <nav class="p-4 py-2 md:py-4 lg:px-6 flex justify-between items-center bg-white font-sansation">
-    <a class="flex gap-4 items-center" href={isHomePage ? '#' : basePath}>
+    <a class="flex gap-4 items-center" href={isHomePage ? '#' : basePath} aria-label="Tvornica Drvenih Konstrukcija">
       <Icon icon="logo" className="w-8 text-[#4B7254]" />
       <h1 class="hidden md:block font-normal text-lg uppercase text-gray-700">Tvornica Drvenih Konstrukcija</h1>
     </a>
@@ -20,4 +22,5 @@ const basePath = isHomePage ? '' : `${origin}/`;
       <NavigationItem href={`${basePath}#contact`}>Kontakt</NavigationItem>
     </ul>
   </nav>
+   test: {astroOrigin}
 </header>
