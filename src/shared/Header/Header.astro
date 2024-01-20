@@ -7,6 +7,8 @@ const origin = isDev ? localOrigin : productionOrigin;
 const isHomePage = Astro.url.origin === origin;
 
 const basePath = isHomePage ? '' : `${origin}/`;
+
+const astroOrigin = Astro.url.origin;
 ---
 
 <header>
@@ -20,4 +22,5 @@ const basePath = isHomePage ? '' : `${origin}/`;
       <NavigationItem href={`${basePath}#contact`}>Kontakt</NavigationItem>
     </ul>
   </nav>
+   test: {astroOrigin}
 </header>
