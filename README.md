@@ -21,7 +21,7 @@ Groups shared concerns (eg. base layout). Use it when there is a concern which c
 domains (eg. a base layout, or a util which is used in several modules). All types of code artifacts can live here:
 components, utils, constants, etc.
 
-## UI
+### UI
 
 Everything closely related to UI should live here, like basic UI components (buttons, inputs), global styles, assets
 (images, icons), theming setups, etc. If a code artefact is abstract and closely related to UI - it belongs here.
