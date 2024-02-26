@@ -4,7 +4,8 @@ import NavigationItem from './NavigationItem.astro';
 import { isDev, localOrigin, productionOrigin } from '~/utils/env';
 
 const origin = isDev ? localOrigin : productionOrigin;
-const isHomePage = Astro.url.origin === origin;
+const isHomePath = Astro.url.pathname === '/';
+const isHomePage = Astro.url.origin === origin && isHomePath;
 
 const basePath = isHomePage ? '' : `${origin}/`;
 ---
