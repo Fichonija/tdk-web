@@ -1,12 +1,12 @@
 ---
 import { Icon } from '~/ui/components';
 import { Image } from 'astro:assets';
-import HeroImg from '~/ui/assets/images/hero.webp';
+import HeroImg from '~/ui/assets/images/hero.jpg';
 ---
 
 <div class="relative h-[50svh] md:h-[75svh] max-h-[768px]">
   <Image loading="eager" quality="mid" src={HeroImg} alt="" class="absolute top-0 left-0 w-full h-full object-cover" />
-  <div class="absolute top-0 left-0 w-full h-full bg-[#9A8ECB]/[.18]"></div>
+  <div class="absolute top-0 left-0 w-full h-full bg-[#BB8056]/[.12]"></div>
   <div class="relative w-full h-full px-4 flex">
     <Icon className="m-auto w-1/2 min-w-[256px] max-w-[400px] text-white" icon="logoText" />
   </div>
