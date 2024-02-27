@@ -1,0 +1,45 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import ProductCards from './ProductCards.tsx';
+import SawnTimberImg from '~/ui/assets/images/materials/sawn-timber.png';
+import LaminatedTimberImg from '~/ui/assets/images/materials/laminated-timber.jpeg';
+import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
+---
+
+<div class="py-8 px-16 flex flex-col gap-8 bg-[#F2EEE8]">
+  <SectionHeader icon="material" text="Građa" />
+  <ProductCards
+    client:load
+    summary="This is a short summary about materials"
+    items={[
+      {
+        title: 'Rezana',
+        text: [
+          'suhe grede izrađene od trupaca, prirodnog izgleda, pouzdan su i kvalitetan izbor za nosivu konstrukciju.',
+        ],
+        image: { meta: SawnTimberImg, alt: 'Primjer izgleda rezane građe' },
+        containerHeight: 'h-[548px]',
+      },
+      {
+        title: 'Lamelirana',
+        text: [
+          'suhe grede izrađene od slijepljenih strojno sortiranih lamela.',
+          'iznimno visoke dimenzijske stabilnosti, niske razine nastajanja pukotina, više nosivosti te otpornosti na vatru.',
+          'ističu se vizualnim dojmom ujednačenosti te modernim i prirodnim izgledom.',
+        ],
+        image: { meta: LaminatedTimberImg, alt: 'Primjer izgleda lamelirane građe' },
+        containerHeight: 'h-[655px]',
+      },
+      {
+        title: 'KVH',
+        text: [
+          'suhe grede izrađene od strojno sortiranih komada punog drva, zupčastim spojevima međusobno spojenih i lijepljenih pod pritiskom.',
+          'visoke dimenzijske stabilnosti, smanjene razine nastajanja pukotina i savijanja te manjeg broja čvorova.',
+          'ističu se prirodnim i modernim izgledom.',
+        ],
+        image: { meta: KvhTimberImg, alt: 'Primjer izgleda KVH građe' },
+        containerHeight: 'h-[640px]',
+      },
+    ]}
+  />
+</div>
