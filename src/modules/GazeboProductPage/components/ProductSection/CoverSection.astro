@@ -8,6 +8,7 @@ import PolycarbStraightImg from '~/ui/assets/images/cover/polycarb-straight.jpg'
 import TinPanelImg from '~/ui/assets/images/cover/tin-panel.jpg';
 import ThermalPanelImg from '~/ui/assets/images/cover/thermal-panel.jpg';
 import TileImg from '~/ui/assets/images/cover/tile.jpg';
+import { ProductItemType } from './types';
 ---
 
 <div class="py-8 px-16 flex flex-col gap-8 bg-[#E4E1D9]">
@@ -21,18 +22,21 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
         text: ['idealno za biljke penjačice.'],
         image: { meta: NoCoverImg, alt: 'Nadstrešnica bez pokrova' },
         containerHeight: 'h-[548px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Zasjena',
         text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
         image: { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
         containerHeight: 'h-[548px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Polikarbonatne ploče',
         text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
         image: { meta: PolycarbStraightImg, alt: 'Nadstrešnica sa ravnim polikarbonatnim pločama' },
         containerHeight: 'h-[655px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Limene ploče',
@@ -41,12 +45,14 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
         ],
         image: { meta: TinPanelImg, alt: 'Nadstrešnica sa limenim pločama' },
         containerHeight: 'h-[640px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Termoizolacijske ploče',
         text: ['ističu se visokom toplinskom i zvučnom izolacijom.'],
         image: { meta: ThermalPanelImg, alt: 'Nadstrešnica sa termoizolacijskim pločama' },
         containerHeight: 'h-[640px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Crijep',
@@ -55,6 +61,7 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
         ],
         image: { meta: TileImg, alt: 'Nadstrešnica sa crijepom' },
         containerHeight: 'h-[640px]',
+        type: ProductItemType.BASE,
       },
     ]}
   />

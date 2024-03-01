@@ -1,16 +1,16 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { ProductCard } from './ProductCard';
-import type { ProductItem, Summary } from './types';
+import type { ProductItemContent, Summary } from './types';
+import { isBaseProductItem } from './utils';
 
 interface Props {
   summary: Summary;
-  items: ProductItem[];
+  items: ProductItemContent[];
 }
 
 const ProductCardsDisplay = ({ summary, items }: Props) => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
-  const { containerHeight, ...rest } = selectedItem;
 
   return (
     <div className="flex flex-col gap-8 font-sansation">
@@ -30,11 +30,11 @@ const ProductCardsDisplay = ({ summary, items }: Props) => {
           </ol>
         ))}
       </ul>
-      <div className={clsx('flex transition-all duration-500', containerHeight)}>
+      <div className={clsx('flex transition-all duration-500', selectedItem.containerHeight)}>
         <div className={clsx('py-16 px-8 flex-1 font-light text-xl text-gray-50', summary.color)}>
           <p>{summary.text}</p>
         </div>
-        <ProductCard {...rest} />
+        {isBaseProductItem(selectedItem) && <ProductCard {...selectedItem} />}
       </div>
     </div>
   );

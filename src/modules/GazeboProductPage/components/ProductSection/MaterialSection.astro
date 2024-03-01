@@ -4,6 +4,7 @@ import ProductCardsDisplay from './ProductCardsDisplay.tsx';
 import SawnTimberImg from '~/ui/assets/images/materials/sawn-timber.png';
 import LaminatedTimberImg from '~/ui/assets/images/materials/laminated-timber.jpeg';
 import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
+import { ProductItemType } from './types';
 ---
 
 <div class="py-8 px-16 flex flex-col gap-8 bg-[#F2EEE8]">
@@ -19,6 +20,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
         ],
         image: { meta: SawnTimberImg, alt: 'Rezana građa' },
         containerHeight: 'h-[548px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'Lamelirana',
@@ -29,6 +31,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
         ],
         image: { meta: LaminatedTimberImg, alt: 'Lamelirana građa' },
         containerHeight: 'h-[655px]',
+        type: ProductItemType.BASE,
       },
       {
         title: 'KVH',
@@ -39,6 +42,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
         ],
         image: { meta: KvhTimberImg, alt: 'KVH građa' },
         containerHeight: 'h-[640px]',
+        type: ProductItemType.BASE,
       },
     ]}
   />

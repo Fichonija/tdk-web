@@ -1,10 +1,6 @@
-import type { ImageMetadata } from 'astro';
+import type { BaseProductItem } from '../types';
 
-interface Props {
-  title: string;
-  text: string[];
-  image: { meta: ImageMetadata; alt: string };
-}
+type Props = Omit<BaseProductItem, 'containerHeight' | 'type'>;
 
 export const ProductCard = ({ title, text, image }: Props) => (
   <div className=" py-16 px-8 flex-[3] flex flex-col items-center gap-8 bg-white">
