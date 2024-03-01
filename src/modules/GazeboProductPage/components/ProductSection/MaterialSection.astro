@@ -10,14 +10,14 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
   <SectionHeader icon="material" text="Građa" />
   <ProductCards
     client:load
-    summary="This is a short summary about materials"
+    summary={{ text: 'This is a short summary about materials', color: 'bg-[#BB8056]' }}
     items={[
       {
         title: 'Rezana',
         text: [
           'suhe grede izrađene od trupaca, prirodnog izgleda, pouzdan su i kvalitetan izbor za nosivu konstrukciju.',
         ],
-        image: { meta: SawnTimberImg, alt: 'Primjer izgleda rezane građe' },
+        image: { meta: SawnTimberImg, alt: 'Rezana građa' },
         containerHeight: 'h-[548px]',
       },
       {
@@ -27,7 +27,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
           'iznimno visoke dimenzijske stabilnosti, niske razine nastajanja pukotina, više nosivosti te otpornosti na vatru.',
           'ističu se vizualnim dojmom ujednačenosti te modernim i prirodnim izgledom.',
         ],
-        image: { meta: LaminatedTimberImg, alt: 'Primjer izgleda lamelirane građe' },
+        image: { meta: LaminatedTimberImg, alt: 'Lamelirana građa' },
         containerHeight: 'h-[655px]',
       },
       {
@@ -37,7 +37,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
           'visoke dimenzijske stabilnosti, smanjene razine nastajanja pukotina i savijanja te manjeg broja čvorova.',
           'ističu se prirodnim i modernim izgledom.',
         ],
-        image: { meta: KvhTimberImg, alt: 'Primjer izgleda KVH građe' },
+        image: { meta: KvhTimberImg, alt: 'KVH građa' },
         containerHeight: 'h-[640px]',
       },
     ]}

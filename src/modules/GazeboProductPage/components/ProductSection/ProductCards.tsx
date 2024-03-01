@@ -9,8 +9,13 @@ interface ProductItem {
   containerHeight: string;
 }
 
+interface Summary {
+  text: string;
+  color: string;
+}
+
 interface Props {
-  summary: string;
+  summary: Summary;
   items: ProductItem[];
 }
 
@@ -36,8 +41,8 @@ const ProductCards = ({ summary, items }: Props) => {
         ))}
       </ul>
       <div className={clsx('flex transition-all duration-500', selectedItem.containerHeight)}>
-        <div className="py-16 px-8 flex-1 bg-[#BB8056] font-light text-xl text-gray-50">
-          <p>{summary}</p>
+        <div className={clsx('py-16 px-8 flex-1 font-light text-xl text-gray-50', summary.color)}>
+          <p>{summary.text}</p>
         </div>
         <div className=" py-16 px-8 flex-[3] flex flex-col items-center gap-8 bg-white">
           <img
