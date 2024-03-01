@@ -1,1 +1,2 @@
-export { default as MissionStatement } from './MissionStatement.astro';
+export { ContactSection } from './ContactSection';
+export { MissionStatement } from './MissionStatement';
