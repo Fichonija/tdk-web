@@ -30,7 +30,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
           </ol>
         ))}
       </ul>
-      <div className={clsx('flex transition-all duration-500', selectedItem.containerHeight)}>
+      <div className={clsx('flex transition-all duration-300', selectedItem.containerHeight)}>
         <div className={clsx('py-16 px-8 flex-1 font-light text-xl text-gray-50 bg-[var(--product-section-color)]')}>
           <p>{summary}</p>
         </div>

@@ -11,7 +11,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
 
   return (
     <div className="py-16 px-8 flex-[3] bg-white">
-      <div className="flex gap-10 items-center">
+      <div className="flex justify-between items-center">
         <ProductNavButton
           onClick={() => setCurrImgIndex(currImageIndex - 1)}
           type="left"
