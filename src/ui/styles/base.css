@@ -32,3 +32,10 @@
     font-display: swap;
   }
 }
+
+@layer utilities {
+  .max-w-wrapper {
+    max-width: 1800px;
+    margin-inline: auto;
+  }
+}
