@@ -33,8 +33,3 @@ interface ProductItemImage {
   meta: ImageMetadata;
   alt: string;
 }
-
-export interface Summary {
-  text: string;
-  color: string;
-}

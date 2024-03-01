@@ -7,11 +7,11 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
 import { ProductItemType } from './types';
 ---
 
-<div class="py-8 px-16 flex flex-col gap-8 bg-[#F2EEE8]">
+<div class="py-8 px-16 flex flex-col gap-8 bg-[#F2EEE8]" style={{ '--product-section-color': '#BB8056' }}>
   <SectionHeader icon="material" text="Građa" />
   <ProductCardsDisplay
     client:load
-    summary={{ text: 'This is a short summary about materials', color: 'bg-[#BB8056]' }}
+    summary="This is a short summary about materials"
     items={[
       {
         title: 'Rezana',

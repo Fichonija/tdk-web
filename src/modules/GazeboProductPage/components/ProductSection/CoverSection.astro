@@ -12,11 +12,11 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
 import { ProductItemType } from './types';
 ---
 
-<div class="py-8 px-16 flex flex-col gap-8 bg-[#E4E1D9]">
+<div class="py-8 px-16 flex flex-col gap-8 bg-[#E4E1D9]" , style={{ '--product-section-color': '#107862' }}>
   <SectionHeader icon="cover" text="Pokrov" />
   <ProductCardsDisplay
     client:load
-    summary={{ text: 'This is a short summary about cover', color: 'bg-[#107862]' }}
+    summary="This is a short summary about cover"
     items={[
       {
         title: 'Bez pokrova',
