@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+
+const imageImports = import.meta.glob<{ default: ImageMetadata }>('/src/ui/assets/images/gallery/*.jpg');
+const images = Object.values(imageImports).map((i) => i());
+---
+
+<section class="py-12 px-10 flex flex-col gap-8">
+  <h2 class="font-sansation font-light text-3xl text-gray-900 text-center">Galerija</h2>
+  <div class="flex gap-6 overflow-x-auto">
+    {
+      images.map((image) => (
+        <Image src={image} height={600} class="object-cover" alt="Nadstrešnica" quality="max" loading="lazy" />
+      ))
+    }
+  </div>
+</section>
