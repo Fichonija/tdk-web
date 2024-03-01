@@ -1,18 +1,7 @@
-import type { ImageMetadata } from 'astro';
 import clsx from 'clsx';
 import { useState } from 'react';
-
-interface ProductItem {
-  title: string;
-  text: string[];
-  image: { meta: ImageMetadata; alt: string };
-  containerHeight: string;
-}
-
-interface Summary {
-  text: string;
-  color: string;
-}
+import { ProductCard } from './ProductCard';
+import type { ProductItem, Summary } from './types';
 
 interface Props {
   summary: Summary;
@@ -21,6 +10,7 @@ interface Props {
 
 const ProductCardsDisplay = ({ summary, items }: Props) => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
+  const { containerHeight, ...rest } = selectedItem;
 
   return (
     <div className="flex flex-col gap-8 font-sansation">
@@ -40,27 +30,11 @@ const ProductCardsDisplay = ({ summary, items }: Props) => {
           </ol>
         ))}
       </ul>
-      <div className={clsx('flex transition-all duration-500', selectedItem.containerHeight)}>
+      <div className={clsx('flex transition-all duration-500', containerHeight)}>
         <div className={clsx('py-16 px-8 flex-1 font-light text-xl text-gray-50', summary.color)}>
           <p>{summary.text}</p>
         </div>
-        <div className=" py-16 px-8 flex-[3] flex flex-col items-center gap-8 bg-white">
-          <img
-            src={selectedItem.image.meta.src}
-            width={400}
-            height={200}
-            className="object-cover shadow-lg shadow-black/10"
-            alt={selectedItem.image.alt}
-          />
-          <div className="flex flex-col items-center gap-4">
-            <h3 className="font-bold text-xl text-gray-800">{selectedItem.title}</h3>
-            <div className="flex flex-col gap-2 font-light text-xl text-gray-800">
-              {selectedItem.text.map((t) => (
-                <p key={t}>{t}</p>
-              ))}
-            </div>
-          </div>
-        </div>
+        <ProductCard {...rest} />
       </div>
     </div>
   );
