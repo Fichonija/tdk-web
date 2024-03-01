@@ -9,7 +9,7 @@ export enum ProductItemType {
 export interface BaseProductItem {
   title: string;
   text: string[];
-  image: { meta: ImageMetadata; alt: string };
+  image: ProductItemImage;
   containerHeight: string;
   type: ProductItemType.BASE;
 }
@@ -17,16 +17,21 @@ export interface BaseProductItem {
 export interface MultipleImagesProductItem {
   title: string;
   text: string[];
-  images: { meta: ImageMetadata; alt: string }[];
+  images: ProductItemImage[];
   containerHeight: string;
   type: ProductItemType.MULTIPLE_IMAGES;
 }
 
 export interface MultipleContentProductItem {
   title: string;
-  subitems: { title: string; text: string; image: { meta: ImageMetadata; alt: string } }[];
+  subitems: { title: string; text: string[]; image: ProductItemImage }[];
   containerHeight: string;
   type: ProductItemType.MULTIPLE_CONTENT;
+}
+
+interface ProductItemImage {
+  meta: ImageMetadata;
+  alt: string;
 }
 
 export interface Summary {

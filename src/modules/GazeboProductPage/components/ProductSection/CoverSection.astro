@@ -5,6 +5,7 @@ import NoCoverImg from '~/ui/assets/images/cover/no-cover.jpeg';
 import StaticShadowCoverImg from '~/ui/assets/images/cover/shadow-static.jpg';
 import DynamicShadowCoverImg from '~/ui/assets/images/cover/shadow-dynamic.jpg';
 import PolycarbStraightImg from '~/ui/assets/images/cover/polycarb-straight.jpg';
+import PolycarbWavyImg from '~/ui/assets/images/cover/polycarb-wavy.jpg';
 import TinPanelImg from '~/ui/assets/images/cover/tin-panel.jpg';
 import ThermalPanelImg from '~/ui/assets/images/cover/thermal-panel.jpg';
 import TileImg from '~/ui/assets/images/cover/tile.jpg';
@@ -36,10 +37,28 @@ import { ProductItemType } from './types';
       },
       {
         title: 'Polikarbonatne ploče',
-        text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
-        image: { meta: PolycarbStraightImg, alt: 'Nadstrešnica sa ravnim polikarbonatnim pločama' },
+        subitems: [
+          {
+            title: 'Ravne',
+            text: [
+              'prozirne višeslojne ploče sa komorama, sa obostranom UV zaštitom.',
+              'boja: prozirna, bronca, opal.',
+            ],
+            image: { meta: PolycarbStraightImg, alt: 'Nadstrešnica sa ravnim polikarbonatnim pločama' },
+          },
+          {
+            title: 'Valovite',
+            text: [
+              'prozirne ploče, piramidalno strukturirane sa donje strane.',
+              'velike otpornosti na ekstremne vremenske uvjete i izuzezno dugog vijeka trajanja.',
+              'osiguravaju visoku razinu svijetlosti te optimiziraju sunčevo zračenje.',
+              'boja: prozirna, bronca, siva.',
+            ],
+            image: { meta: PolycarbWavyImg, alt: 'Nadstrešnica sa valovitim polikarbonatnim pločama' },
+          },
+        ],
         containerHeight: 'h-[655px]',
-        type: ProductItemType.BASE,
+        type: ProductItemType.MULTIPLE_CONTENT,
       },
       {
         title: 'Limene ploče',

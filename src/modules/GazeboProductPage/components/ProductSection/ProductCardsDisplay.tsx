@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { MultipleImagesProductCard, ProductCard } from './ProductCard';
+import { MultipleContentProductCard, MultipleImagesProductCard, ProductCard } from './ProductCard';
 import type { ProductItemContent, Summary } from './types';
 import { isBaseProductItem, isMultipleImagesProductItem } from './utils';
 
@@ -38,7 +38,9 @@ const ProductCardsDisplay = ({ summary, items }: Props) => {
           <ProductCard {...selectedItem} />
         ) : isMultipleImagesProductItem(selectedItem) ? (
           <MultipleImagesProductCard {...selectedItem} />
-        ) : null}
+        ) : (
+          <MultipleContentProductCard {...selectedItem} />
+        )}
       </div>
     </div>
   );
