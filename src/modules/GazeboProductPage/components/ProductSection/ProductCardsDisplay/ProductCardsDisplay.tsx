@@ -5,7 +5,7 @@ import type { ProductItemContent } from './types';
 import { isBaseProductItem, isMultipleImagesProductItem } from './utils';
 
 interface Props {
-  summary: string;
+  summary: string[];
   items: ProductItemContent[];
 }
 
@@ -32,7 +32,9 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
       </ul>
       <div className={clsx('flex transition-all duration-300', selectedItem.containerHeight)}>
         <div className={clsx('py-16 px-8 w-[30%] font-light text-xl text-gray-50 bg-[var(--product-section-color)]')}>
-          <p>{summary}</p>
+          {summary.map((t) => (
+            <p>{t}</p>
+          ))}
         </div>
         {isBaseProductItem(selectedItem) ? (
           <ProductCard {...selectedItem} />

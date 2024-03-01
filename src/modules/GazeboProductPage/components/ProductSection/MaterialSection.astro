@@ -13,7 +13,10 @@ import { ProductItemType } from './ProductCardsDisplay/types.ts';
     <SectionHeader icon="material" text="Građa" />
     <ProductCardsDisplay
       client:load
-      summary="This is a short summary about materials"
+      summary={[
+        'Iznimno se ponosimo građom s kojom radimo. Surađujemo s najboljim pilanama kako bi osigurali kvalitetne grede velikih nosivosti i prirodnog izgleda.',
+        'Bilo da tražite klasične grede od rezane građe, ili modernija rješenja sa dodatnim mogućnostima - imamo sve pokriveno!',
+      ]}
       items={[
         {
           title: 'Rezana',
@@ -29,7 +32,7 @@ import { ProductItemType } from './ProductCardsDisplay/types.ts';
           text: [
             'suhe grede izrađene od slijepljenih strojno sortiranih lamela.',
             'iznimno visoke dimenzijske stabilnosti, niske razine nastajanja pukotina, više nosivosti te otpornosti na vatru.',
-            'ističu se vizualnim dojmom ujednačenosti te modernim i prirodnim izgledom.',
+            'ističu se vizualnim dojmom ujednačenosti te prirodnim i modernim izgledom.',
           ],
           image: { meta: LaminatedTimberImg, alt: 'Lamelirana građa' },
           containerHeight: 'h-[599px]',

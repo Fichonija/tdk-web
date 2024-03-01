@@ -18,7 +18,11 @@ import { ProductItemType } from './ProductCardsDisplay/types';
     <SectionHeader icon="cover" text="Pokrov" />
     <ProductCardsDisplay
       client:load
-      summary="This is a short summary about cover"
+      summary={[
+        'Imamo bogatu ponudu pokrova za nadstrešnice.',
+        'Pokrovi sa zasjenom i crijepovi rješenja su s kojima ćete postići prirodan izgled i zaklon od padalina.',
+        'Ako trebate pojačanu otpornost i izolaciju pogledajte našu ponudu polikarbonatnih, limenih i termoizolacijskih ploča.',
+      ]}
       items={[
         {
           title: 'Bez pokrova',
