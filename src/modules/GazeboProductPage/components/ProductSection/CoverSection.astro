@@ -27,9 +27,12 @@ import { ProductItemType } from './types';
       {
         title: 'Zasjena',
         text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
-        image: { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
+        images: [
+          { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
+          { meta: DynamicShadowCoverImg, alt: 'Nadstrešnica sa dinamičnom zasjenom' },
+        ],
         containerHeight: 'h-[548px]',
-        type: ProductItemType.BASE,
+        type: ProductItemType.MULTIPLE_IMAGES,
       },
       {
         title: 'Polikarbonatne ploče',
@@ -66,4 +69,3 @@ import { ProductItemType } from './types';
     ]}
   />
 </div>
- ./ProductCardsDisplay

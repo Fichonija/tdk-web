@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { ProductCard } from './ProductCard';
+import { MultipleImagesProductCard, ProductCard } from './ProductCard';
 import type { ProductItemContent, Summary } from './types';
-import { isBaseProductItem } from './utils';
+import { isBaseProductItem, isMultipleImagesProductItem } from './utils';
 
 interface Props {
   summary: Summary;
@@ -34,7 +34,11 @@ const ProductCardsDisplay = ({ summary, items }: Props) => {
         <div className={clsx('py-16 px-8 flex-1 font-light text-xl text-gray-50', summary.color)}>
           <p>{summary.text}</p>
         </div>
-        {isBaseProductItem(selectedItem) && <ProductCard {...selectedItem} />}
+        {isBaseProductItem(selectedItem) ? (
+          <ProductCard {...selectedItem} />
+        ) : isMultipleImagesProductItem(selectedItem) ? (
+          <MultipleImagesProductCard {...selectedItem} />
+        ) : null}
       </div>
     </div>
   );
