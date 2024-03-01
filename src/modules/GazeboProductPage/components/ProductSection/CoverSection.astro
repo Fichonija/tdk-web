@@ -1,6 +1,6 @@
 ---
 import SectionHeader from './SectionHeader.astro';
-import ProductCards from './ProductCards';
+import ProductCardsDisplay from './ProductCardsDisplay';
 import NoCoverImg from '~/ui/assets/images/cover/no-cover.jpeg';
 import StaticShadowCoverImg from '~/ui/assets/images/cover/shadow-static.jpg';
 import DynamicShadowCoverImg from '~/ui/assets/images/cover/shadow-dynamic.jpg';
@@ -12,7 +12,7 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
 
 <div class="py-8 px-16 flex flex-col gap-8 bg-[#E4E1D9]">
   <SectionHeader icon="cover" text="Pokrov" />
-  <ProductCards
+  <ProductCardsDisplay
     client:load
     summary={{ text: 'This is a short summary about cover', color: 'bg-[#107862]' }}
     items={[
@@ -59,3 +59,4 @@ import TileImg from '~/ui/assets/images/cover/tile.jpg';
     ]}
   />
 </div>
+ ./ProductCardsDisplay

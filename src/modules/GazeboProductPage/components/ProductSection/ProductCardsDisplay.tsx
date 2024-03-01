@@ -19,7 +19,7 @@ interface Props {
   items: ProductItem[];
 }
 
-const ProductCards = ({ summary, items }: Props) => {
+const ProductCardsDisplay = ({ summary, items }: Props) => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
   return (
@@ -66,4 +66,4 @@ const ProductCards = ({ summary, items }: Props) => {
   );
 };
 
-export default ProductCards;
+export default ProductCardsDisplay;

@@ -1,6 +1,6 @@
 ---
 import SectionHeader from './SectionHeader.astro';
-import ProductCards from './ProductCards.tsx';
+import ProductCardsDisplay from './ProductCardsDisplay.tsx';
 import SawnTimberImg from '~/ui/assets/images/materials/sawn-timber.png';
 import LaminatedTimberImg from '~/ui/assets/images/materials/laminated-timber.jpeg';
 import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
@@ -8,7 +8,7 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
 
 <div class="py-8 px-16 flex flex-col gap-8 bg-[#F2EEE8]">
   <SectionHeader icon="material" text="Građa" />
-  <ProductCards
+  <ProductCardsDisplay
     client:load
     summary={{ text: 'This is a short summary about materials', color: 'bg-[#BB8056]' }}
     items={[
@@ -43,3 +43,4 @@ import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
     ]}
   />
 </div>
+ ./ProductCardsDisplay.tsx
