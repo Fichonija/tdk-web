@@ -1,4 +1,4 @@
-import type { MultipleContentProductItem, MultipleImagesProductItem } from '../types';
+import type { MultipleContentProductItem } from '../types';
 import { useState } from 'react';
 import { ProductCardImage } from './ProductCardImage';
 import { ProductNavButton } from './ImageNavButton';
