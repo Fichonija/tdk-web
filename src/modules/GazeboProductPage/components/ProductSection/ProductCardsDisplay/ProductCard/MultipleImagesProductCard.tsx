@@ -1,7 +1,7 @@
 import type { MultipleImagesProductItem } from '../types';
 import { useState } from 'react';
 import { ProductCardImage } from './ProductCardImage';
-import { ProductNavButton } from './ImageNavButton';
+import { ProductNavButton } from './ProductNavButton';
 
 type Props = Omit<MultipleImagesProductItem, 'containerHeight' | 'type'>;
 
@@ -11,7 +11,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
 
   return (
     <div className="py-16 px-8 flex-[3] bg-white">
-      <div className="flex justify-between items-center">
+      <div className="h-full flex justify-between items-center">
         <ProductNavButton
           onClick={() => setCurrImgIndex(currImageIndex - 1)}
           type="left"

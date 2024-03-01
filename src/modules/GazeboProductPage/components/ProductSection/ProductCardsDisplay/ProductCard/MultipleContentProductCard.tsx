@@ -1,7 +1,7 @@
 import type { MultipleContentProductItem } from '../types';
 import { useState } from 'react';
 import { ProductCardImage } from './ProductCardImage';
-import { ProductNavButton } from './ImageNavButton';
+import { ProductNavButton } from './ProductNavButton';
 
 type Props = Pick<MultipleContentProductItem, 'subitems'>;
 
