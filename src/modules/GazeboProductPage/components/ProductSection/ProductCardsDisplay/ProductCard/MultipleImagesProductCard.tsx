@@ -11,13 +11,13 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
 
   return (
     <div className="py-16 px-8 flex-[3] bg-white">
-      <div className="h-full flex justify-between items-center">
+      <div className="h-full flex items-center">
         <ProductNavButton
           onClick={() => setCurrImgIndex(currImageIndex - 1)}
           type="left"
           isDisabled={currImageIndex === 0}
         />
-        <div className="flex flex-col items-center gap-8">
+        <div className="w-full flex flex-col items-center gap-8">
           <ProductCardImage src={selectedImage.meta.src} alt={selectedImage.alt} />
           <div className="flex flex-col items-center gap-4">
             <h3 className="font-bold text-xl text-gray-800">{title}</h3>

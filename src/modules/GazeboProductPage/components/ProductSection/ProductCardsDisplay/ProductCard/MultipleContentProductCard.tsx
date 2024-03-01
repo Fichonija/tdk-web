@@ -11,13 +11,13 @@ export const MultipleContentProductCard = ({ subitems }: Props) => {
 
   return (
     <div className="py-16 px-8 flex-[3] bg-white">
-      <div className="h-full flex justify-between items-center">
+      <div className="h-full flex items-center">
         <ProductNavButton
           onClick={() => setCurrItemIndex(currItemIndex - 1)}
           type="left"
           isDisabled={currItemIndex === 0}
         />
-        <div className="self-start flex flex-col items-center gap-8">
+        <div className="w-full self-start flex flex-col items-center gap-8">
           <ProductCardImage src={image.meta.src} alt={image.alt} />
           <div className="flex flex-col items-center gap-4">
             <h3 className="font-bold text-xl text-gray-800">{title}</h3>
