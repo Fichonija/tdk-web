@@ -13,7 +13,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
   return (
-    <div className="w-full max-w-[1800px] flex flex-col gap-8 font-sansation">
+    <div className="w-full flex flex-col gap-8 font-sansation">
       <ul className="w-fit flex font-light text-2xl text-gray-900">
         {items.map((item, i) => (
           <ol
