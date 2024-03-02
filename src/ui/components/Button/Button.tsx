@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+// import { ReactSVG } from 'react-svg';
+// import ReactComponent from '~/ui/assets/icons/arrowRight.svg?raw';
 
 type ButtonAttributes = Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'name'>;
 type LinkAttributes = Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
@@ -11,12 +13,18 @@ type Props = ButtonAttributes &
     isDisabled?: boolean;
     isFullWidth?: boolean;
     onClick?: () => void;
+    iconRight?: React.ReactElement;
   };
 
-//todo add support for icons
-// option 1. forward icon via slot?
-export const Button = ({ as = 'button', text, isDisabled, isFullWidth, onClick, ...rest }: Props) => {
-  const Component = as;
+export const Button = ({
+  as: Component = 'button',
+  text,
+  isDisabled,
+  isFullWidth,
+  onClick,
+  iconRight,
+  ...rest
+}: Props) => {
   return (
     <Component
       onClick={onClick}
@@ -27,7 +35,10 @@ export const Button = ({ as = 'button', text, isDisabled, isFullWidth, onClick, 
       )}
       {...rest}
     >
-      <span className="font-sansation font-normal text-base text-white">{text}</span>
+      <div className="group flex items-center gap-2 text-white">
+        <span className="font-sansation font-normal text-base">{text}</span>
+        {iconRight && <div className="group-hover:animate-slide">{iconRight}</div>}
+      </div>
     </Component>
   );
 };
