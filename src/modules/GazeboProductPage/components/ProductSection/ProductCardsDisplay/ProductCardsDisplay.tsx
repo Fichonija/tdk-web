@@ -13,15 +13,15 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
   return (
-    <div className="w-full flex flex-col gap-8 font-sansation">
+    <div className="w-full flex flex-col gap-4 lg:gap-8 font-sansation">
       <nav>
-        <ul className="w-fit flex font-light text-2xl text-gray-900">
+        <ul className="flex flex-wrap font-light text-xl lg:text-2xl text-gray-900">
           {items.map((item, i) => (
             <ol
               tabIndex={0}
               key={i}
               className={clsx(
-                'p-4 cursor-pointer border-b-2',
+                'p-2 lg:p-4 flex-1 lg:flex-initial cursor-pointer border-b-2 text-center whitespace-nowrap',
                 selectedItem === item ? 'border-b-black' : 'border-b-black/20',
               )}
               onClick={() => setSelectedItem(item)}
@@ -33,7 +33,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
         </ul>
       </nav>
       <article className={clsx('flex transition-all duration-300', selectedItem.containerHeight)}>
-        <div className={clsx('py-16 px-8 w-[30%] font-light text-xl text-gray-50 bg-[var(--product-section-color)]')}>
+        <div className="hidden lg:block py-16 px-8 w-1/3 font-light text-xl text-gray-50 bg-[var(--product-section-color)]">
           {summary.map((text, i) => (
             <p key={i}>{text}</p>
           ))}
