@@ -29,12 +29,12 @@ export const Button = ({
       disabled={isDisabled}
       className={clsx(
         isFullWidth ? 'w-full' : 'w-fit',
-        'py-2 px-4 rounded bg-[#829C9B]',
+        'group py-2 px-4 rounded bg-[#829C9B]',
         isDisabled ? 'bg-[#afafaf] cursor-default' : 'hover:bg-[#688887] focus:bg-[#688887] active:bg-[#3F6362]',
       )}
       {...rest}
     >
-      <div className={clsx('group flex items-center gap-2 text-white', isDisabled && 'opacity-80')}>
+      <div className={clsx('flex items-center gap-2 text-white', isDisabled && 'opacity-80')}>
         <span className="font-sansation font-normal text-base">{text}</span>
         {iconRight && <div className={clsx(!isDisabled && 'w-6 h-6 group-hover:animate-slide')}>{iconRight}</div>}
       </div>
