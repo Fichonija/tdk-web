@@ -34,7 +34,7 @@ export const Button = ({
       )}
       {...rest}
     >
-      <div className={clsx('flex items-center gap-2 text-white', isDisabled && 'opacity-80')}>
+      <div className={clsx('flex justify-center items-center gap-2 text-white', isDisabled && 'opacity-80')}>
         <span className="font-sansation font-normal text-base">{text}</span>
         {iconRight && <div className={clsx(!isDisabled && 'w-6 h-6 group-hover:animate-slide')}>{iconRight}</div>}
       </div>
