@@ -15,8 +15,8 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
 
   return (
     <div className="relative p-8 md:p-10 lg:py-16 lg:px-28 flex-[3] bg-white">
-      <div className="h-full flex items-center">
-        <div className="hidden lg:flex w-10 h-full items-center shrink-0">
+      <div className="h-full flex">
+        <div className="hidden absolute top-0 left-0 lg:flex w-28 h-full items-center shrink-0">
           <ProductNavButton
             onClick={() => setCurrImgIndex(currImageIndex - 1)}
             type="left"
@@ -27,7 +27,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
           <ProductCardImage src={selectedImage.meta.src} alt={selectedImage.alt} />
           <div className="flex flex-col items-center gap-4">
             <div className="max-w-[400px] w-full flex justify-between lg:justify-center">
-              <div className={clsx('lg:hidden w-6 h-6', !isLeftNavDisabled && 'animate-slide')}>
+              <div className="lg:hidden w-6 h-6">
                 <ProductNavButton
                   onClick={() => setCurrImgIndex(currImageIndex - 1)}
                   type="left"
@@ -35,7 +35,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
                 />
               </div>
               <h3 className="font-bold text-xl text-gray-800">{title}</h3>
-              <div className={clsx('lg:hidden w-6 h-6', !isRightNavDisabled && 'animate-slide')}>
+              <div className="lg:hidden w-6 h-6">
                 <ProductNavButton
                   type="right"
                   onClick={() => setCurrImgIndex(currImageIndex + 1)}
@@ -50,7 +50,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex w-10 h-full items-center shrink-0">
+        <div className="hidden absolute top-0 right-0 lg:flex w-28 h-full items-center shrink-0">
           <ProductNavButton
             type="right"
             onClick={() => setCurrImgIndex(currImageIndex + 1)}

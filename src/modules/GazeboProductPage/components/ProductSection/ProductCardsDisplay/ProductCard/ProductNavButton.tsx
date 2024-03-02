@@ -10,7 +10,7 @@ export const ProductNavButton = ({ type, onClick, isDisabled }: ProductNavButton
     onClick={onClick}
     disabled={isDisabled}
   >
-    {type === 'left' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+    <div className="mx-auto max-w-[40px]">{type === 'left' ? <ChevronLeftIcon /> : <ChevronRightIcon />}</div>
   </button>
 );
 
