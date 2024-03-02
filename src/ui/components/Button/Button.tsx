@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
-// import { ReactSVG } from 'react-svg';
-// import ReactComponent from '~/ui/assets/icons/arrowRight.svg?raw';
 
 type ButtonAttributes = Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'name'>;
 type LinkAttributes = Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
