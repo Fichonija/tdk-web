@@ -1,13 +1,10 @@
 ---
 import { Icon } from '~/ui/components';
 import NavigationItem from './NavigationItem.astro';
-import { isDev, localOrigin, productionOrigin } from '~/utils/env';
 import clsx from 'clsx';
 
-const origin = isDev ? localOrigin : productionOrigin;
-
 const isHomePage = Astro.url.pathname === '/';
-const homeBasePath = isHomePage ? '' : `${origin}/`;
+const homeBasePath = isHomePage ? '' : `${Astro.url.origin}/`;
 ---
 
 <header>
