@@ -10,7 +10,6 @@ export interface BaseProductItem {
   title: string;
   text: string[];
   image: ProductItemImage;
-  containerHeight: string;
   type: ProductItemType.BASE;
 }
 
@@ -18,14 +17,12 @@ export interface MultipleImagesProductItem {
   title: string;
   text: string[];
   images: ProductItemImage[];
-  containerHeight: string;
   type: ProductItemType.MULTIPLE_IMAGES;
 }
 
 export interface MultipleContentProductItem {
   title: string;
   subitems: { title: string; text: string[]; image: ProductItemImage }[];
-  containerHeight: string;
   type: ProductItemType.MULTIPLE_CONTENT;
 }
 

@@ -32,7 +32,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
           ))}
         </ul>
       </nav>
-      <article className={clsx('flex transition-all duration-300', selectedItem.containerHeight)}>
+      <article className="flex transition-all duration-300">
         <div className="hidden py-16 px-8 w-1/3 lg:flex lg:flex-col gap-1 font-light text-xl text-gray-50 bg-[var(--product-section-color)]">
           {summary.map((text, i) => (
             <p key={i}>{text}</p>
