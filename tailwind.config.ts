@@ -10,6 +10,19 @@ export default {
         display: 'Montserrat',
         sansation: 'Sansation',
       },
+      animation: {
+        slide: 'slide 600ms ease-in-out infinite alternate',
+      },
+      keyframes: {
+        slide: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(6px)',
+          },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

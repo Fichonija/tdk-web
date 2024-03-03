@@ -1,0 +1,91 @@
+---
+import ProductSectionLayout from './ProductSectionLayout.astro';
+import SectionHeader from './SectionHeader.astro';
+import { ProductCardsDisplay } from './ProductCardsDisplay';
+import NoCoverImg from '~/ui/assets/images/cover/no-cover.jpeg';
+import StaticShadowCoverImg from '~/ui/assets/images/cover/shadow-static.jpg';
+import DynamicShadowCoverImg from '~/ui/assets/images/cover/shadow-dynamic.jpg';
+import PolycarbStraightImg from '~/ui/assets/images/cover/polycarb-straight.jpg';
+import PolycarbWavyImg from '~/ui/assets/images/cover/polycarb-wavy.jpg';
+import TinPanelImg from '~/ui/assets/images/cover/tin-panel.jpg';
+import ThermalPanelImg from '~/ui/assets/images/cover/thermal-panel.jpg';
+import TileImg from '~/ui/assets/images/cover/tile.jpg';
+import { ProductItemType } from './ProductCardsDisplay/types';
+---
+
+<section class="bg-[#E4E1D9]" style={{ '--product-section-color': '#107862' }}>
+  <ProductSectionLayout>
+    <SectionHeader icon="cover" text="Pokrov" />
+    <ProductCardsDisplay
+      client:load
+      summary={[
+        'Imamo bogatu ponudu pokrova za nadstrešnice.',
+        'Pokrovi sa zasjenom i crijepovi rješenja su s kojima ćete postići prirodan izgled i zaklon od padalina.',
+        'Ako trebate pojačanu otpornost i izolaciju pogledajte našu ponudu polikarbonatnih, limenih i termoizolacijskih ploča.',
+      ]}
+      items={[
+        {
+          title: 'Bez pokrova',
+          text: ['idealno za biljke penjačice.'],
+          image: { meta: NoCoverImg, alt: 'Nadstrešnica bez pokrova' },
+          type: ProductItemType.BASE,
+        },
+        {
+          title: 'Zasjena',
+          text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
+          images: [
+            { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
+            { meta: DynamicShadowCoverImg, alt: 'Nadstrešnica sa dinamičnom zasjenom' },
+          ],
+          type: ProductItemType.MULTIPLE_IMAGES,
+        },
+        {
+          title: 'Polikarbonatne ploče',
+          subitems: [
+            {
+              title: 'Ravne',
+              text: [
+                'prozirne višeslojne ploče sa komorama, sa obostranom UV zaštitom.',
+                'boja: prozirna, bronca, opal.',
+              ],
+              image: { meta: PolycarbStraightImg, alt: 'Nadstrešnica sa ravnim polikarbonatnim pločama' },
+            },
+            {
+              title: 'Valovite',
+              text: [
+                'prozirne ploče, piramidalno strukturirane sa donje strane.',
+                'velike otpornosti na ekstremne vremenske uvjete i izuzezno dugog vijeka trajanja.',
+                'osiguravaju visoku razinu svijetlosti te optimiziraju sunčevo zračenje.',
+                'boja: prozirna, bronca, siva.',
+              ],
+              image: { meta: PolycarbWavyImg, alt: 'Nadstrešnica sa valovitim polikarbonatnim pločama' },
+            },
+          ],
+          type: ProductItemType.MULTIPLE_CONTENT,
+        },
+        {
+          title: 'Limene ploče',
+          text: [
+            'trapezne limene ploče, bez ili sa sekundarnim krovom - daske ili brodski pod sa paropropusnom folijom.',
+          ],
+          image: { meta: TinPanelImg, alt: 'Nadstrešnica sa limenim pločama' },
+          type: ProductItemType.BASE,
+        },
+        {
+          title: 'Termoizolacijske ploče',
+          text: ['ističu se visokom toplinskom i zvučnom izolacijom.'],
+          image: { meta: ThermalPanelImg, alt: 'Nadstrešnica sa termoizolacijskim pločama' },
+          type: ProductItemType.BASE,
+        },
+        {
+          title: 'Crijep',
+          text: [
+            'glineni crijep po izboru, bez ili sa sekundarnim krovom - daske ili brodski pod sa paropropusnom folijom.',
+          ],
+          image: { meta: TileImg, alt: 'Nadstrešnica sa crijepom' },
+          type: ProductItemType.BASE,
+        },
+      ]}
+    />
+  </ProductSectionLayout>
+</section>

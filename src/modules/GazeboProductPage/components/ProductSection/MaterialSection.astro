@@ -1,0 +1,52 @@
+---
+import { ProductCardsDisplay } from './ProductCardsDisplay';
+import SectionHeader from './SectionHeader.astro';
+import ProductSectionLayout from './ProductSectionLayout.astro';
+import SawnTimberImg from '~/ui/assets/images/materials/sawn-timber.png';
+import LaminatedTimberImg from '~/ui/assets/images/materials/laminated-timber.jpeg';
+import KvhTimberImg from '~/ui/assets/images/materials/kvh-timber.jpeg';
+import { ProductItemType } from './ProductCardsDisplay/types.ts';
+---
+
+<section class="bg-[#F2EEE8]" style={{ '--product-section-color': '#BB8056' }}>
+  <ProductSectionLayout>
+    <SectionHeader icon="material" text="Građa" />
+    <ProductCardsDisplay
+      client:load
+      summary={[
+        'Iznimno se ponosimo građom s kojom radimo. Surađujemo s najboljim pilanama kako bi osigurali kvalitetne grede velikih nosivosti i prirodnog izgleda.',
+        'Bilo da tražite klasične grede od rezane građe ili modernija rješenja sa dodatnim mogućnostima - imamo sve pokriveno!',
+      ]}
+      items={[
+        {
+          title: 'Rezana',
+          text: [
+            'suhe grede izrađene od trupaca, prirodnog izgleda, pouzdan su i kvalitetan izbor za nosivu konstrukciju.',
+          ],
+          image: { meta: SawnTimberImg, alt: 'Rezana građa' },
+          type: ProductItemType.BASE,
+        },
+        {
+          title: 'Lamelirana',
+          text: [
+            'suhe grede izrađene od slijepljenih strojno sortiranih lamela.',
+            'iznimno visoke dimenzijske stabilnosti, niske razine nastajanja pukotina, više nosivosti te otpornosti na vatru.',
+            'ističu se vizualnim dojmom ujednačenosti te prirodnim i modernim izgledom.',
+          ],
+          image: { meta: LaminatedTimberImg, alt: 'Lamelirana građa' },
+          type: ProductItemType.BASE,
+        },
+        {
+          title: 'KVH',
+          text: [
+            'suhe grede izrađene od strojno sortiranih komada punog drva, zupčastim spojevima međusobno spojenih i lijepljenih pod pritiskom.',
+            'visoke dimenzijske stabilnosti, smanjene razine nastajanja pukotina i savijanja te manjeg broja čvorova.',
+            'ističu se prirodnim i modernim izgledom.',
+          ],
+          image: { meta: KvhTimberImg, alt: 'KVH građa' },
+          type: ProductItemType.BASE,
+        },
+      ]}
+    />
+  </ProductSectionLayout>
+</section>
