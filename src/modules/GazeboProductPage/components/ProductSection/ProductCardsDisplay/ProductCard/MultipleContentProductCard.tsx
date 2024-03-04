@@ -39,7 +39,7 @@ export const MultipleContentProductCard = ({ subitems }: Props) => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2 font-light text-xl text-gray-800 text-justify lg:text-start">
+            <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800">
               {text.map((t) => (
                 <p key={t}>{t}</p>
               ))}

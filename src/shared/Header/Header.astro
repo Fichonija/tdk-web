@@ -13,14 +13,14 @@ const homeBasePath = isHomePage ? '' : `${Astro.url.origin}/`;
       <a
         class={clsx(
           'flex gap-4 items-center',
-          "after:content-['TDK'] md:after:content-['Tvornica_Drvenih_Konstrukcija'] after:text-lg after:uppercase after:text-gray-700",
+          "after:content-['TDK'] md:after:content-['Tvornica_Drvenih_Konstrukcija'] after:text-lg after:md:text-xl after:uppercase after:text-gray-700",
         )}
         href={isHomePage ? '#' : homeBasePath}
         aria-label="Tvornica Drvenih Konstrukcija"
       >
         <Icon icon="logo" className="w-8 text-[#107862]" />
       </a>
-      <ul class="flex gap-8 list-none font-light text-lg">
+      <ul class="flex gap-6 md:gap-8 list-none font-light text-lg md:text-xl">
         <NavigationItem href={`${homeBasePath}#products`}>Proizvodi</NavigationItem>
         <NavigationItem href={`#contact`}>Kontakt</NavigationItem>
       </ul>
