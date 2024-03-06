@@ -8,8 +8,10 @@ import HeroImg from '~/ui/assets/images/hero.jpg';
   <div class="relative max-w-wrapper h-[50svh] md:h-[75svh] max-h-[768px]">
     <Image
       loading="eager"
-      quality="mid"
+      quality="max"
       src={HeroImg}
+      widths={[700, 1800]}
+      sizes={'(min-width: 900px) 1800px, 700px'}
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover"
     />

@@ -13,8 +13,8 @@ const images = Object.values(imageImports).map((i) => i());
         images.map((image) => (
           <Image
             src={image}
-            widths={[400, 700, 1000]}
-            sizes={'(max-width: 512px) 400px, (max-width: 768px) 700px, (min-width: 769px) 1000px'}
+            widths={[700, 1000]}
+            sizes={'(min-width: 900px) 1000px, 700px'}
             class="object-cover"
             alt="Nadstrešnica"
             loading="lazy"
