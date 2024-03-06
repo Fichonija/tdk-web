@@ -11,23 +11,33 @@ type Props = ButtonAttributes &
     isDisabled?: boolean;
     isFullWidth?: boolean;
     onClick?: () => void;
+    iconRight?: React.ReactElement;
   };
 
-//todo add support for icons
-// option 1. forward icon via slot?
-export const Button = ({ as = 'button', text, isDisabled, isFullWidth, onClick, ...rest }: Props) => {
-  const Component = as;
+export const Button = ({
+  as: Component = 'button',
+  text,
+  isDisabled,
+  isFullWidth,
+  onClick,
+  iconRight,
+  ...rest
+}: Props) => {
   return (
     <Component
-      onClick={onClick}
+      onClick={!isDisabled ? onClick : undefined}
       disabled={isDisabled}
       className={clsx(
         isFullWidth ? 'w-full' : 'w-fit',
-        'py-2 px-4 rounded bg-[#4B7254] disabled:bg-[#afafaf] disabled:cursor-auto',
+        'group py-2 px-4 rounded bg-[#829C9B]',
+        isDisabled ? 'bg-[#afafaf] cursor-default' : 'hover:bg-[#688887] focus:bg-[#688887] active:bg-[#3F6362]',
       )}
       {...rest}
     >
-      <span className="font-sansation font-normal text-base text-gray-50">{text}</span>
+      <div className={clsx('flex justify-center items-center gap-2 text-white', isDisabled && 'opacity-80')}>
+        <span className="font-sansation font-normal text-base md:text-lg">{text}</span>
+        {iconRight && <div className={clsx(!isDisabled && 'w-6 h-6 group-hover:animate-slide')}>{iconRight}</div>}
+      </div>
     </Component>
   );
 };

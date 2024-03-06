@@ -1,0 +1,22 @@
+---
+import HeroImg from '~/ui/assets/images/gazebo-hero.jpg';
+import { Image } from 'astro:assets';
+---
+
+<section class="relative h-[312px] md:h-[412px] lg:h-[512px]">
+  <Image
+    src={HeroImg}
+    alt=""
+    widths={[700, 1800]}
+    sizes={'(min-width: 900px) 1800px, 700px'}
+    loading="eager"
+    quality="high"
+    class="object-cover max-w-wrapper h-full w-full"
+  />
+  <div class="absolute top-0 left-0 w-full h-full bg-[#BB8056]/[.12]"></div>
+  <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+    <h1 class="px-4 font-sansation text-3xl md:text-4xl lg:text-5xl text-gray-50 text-center">
+      Nadstrešnice, pergole i sjenice
+    </h1>
+  </div>
+</section>

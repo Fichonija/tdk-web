@@ -1,0 +1,13 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<section class="p-4 md:p-10 bg-white">
+  <p class="max-w-wrapper font-sansation font-light text-gray-900 text-xl md:text-2xl !leading-loose text-center">
+    {text}
+  </p>
+</section>

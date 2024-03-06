@@ -1,0 +1,19 @@
+---
+import Layout from '~/shared/Layout';
+import { ContactSection, MissionStatement } from '~/shared/components';
+import { CoverSection, Gallery, Hero, MaterialSection } from './components';
+---
+
+<Layout
+  title="Tvornica Drvenih Konstrukcija"
+  description="Mlad i profesionalan tim koji izvodi stolarske radove diljem Hrvatske. Izrađujemo nadstrešnice, pergole i sjenice po mjeri a posebice se ponosimo kućicama na stablu koje izrađujemo po najmodernijim standardima."
+>
+  <Hero />
+  <MissionStatement
+    text="Naše materijale odabiremo na temelju ravnoteže funkcionalnosti, trajnosti i njihove sposobnosti dostojanstvenog starenja."
+  />
+  <MaterialSection />
+  <CoverSection />
+  <Gallery />
+  <ContactSection />
+</Layout>

@@ -3,6 +3,7 @@ import ProductCard from './ProductCard.astro';
 import GazeeboSectionImg from '~/ui/assets/images/gazeebo-section.jpeg';
 import TreehouseSectionImg from '~/ui/assets/images/treehouse-section.jpg';
 import StatementSeparator from './StatementSeparator.astro';
+import { Button, Icon } from '~/ui/components';
 ---
 
 <section id="products">
@@ -11,15 +12,19 @@ import StatementSeparator from './StatementSeparator.astro';
     imgAlt="Primjer izgleda nadstrešnice"
     title="Nadstrešnice, pergole i sjenice"
     description="Izrađujemo nadstrešnice, pergole i sjenice od najkvalitetnijeg drva"
-    href="#contact"
-  />
+  >
+    <Button as="a" href="/nadstresnice" text="Saznajte više" slot="action-button">
+      <Icon icon="arrowRight" slot="iconRight" />
+    </Button>
+  </ProductCard>
   <StatementSeparator />
   <ProductCard
     imgSrc={TreehouseSectionImg}
     imgAlt="Primjer izgleda kućice na stablu"
     title="Kućice na stablu"
     description="Iznimno smo ponosni na kućice na stablu koje izrađujemo po mjeri"
-    href="#contact"
     isReverse
-  />
+  >
+    <Button as="a" href="#contact" text="Kontaktirajte nas" slot="action-button" />
+  </ProductCard>
 </section>
