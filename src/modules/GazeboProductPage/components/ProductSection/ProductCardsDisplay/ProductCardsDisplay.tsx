@@ -17,7 +17,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
       <nav>
         <ul className="flex flex-wrap font-light text-xl lg:text-2xl text-gray-900">
           {items.map((item, i) => (
-            <ol
+            <li
               tabIndex={0}
               key={i}
               className={clsx(
@@ -28,7 +28,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
               onKeyDown={(e) => e.key === 'Enter' && setSelectedItem(item)}
             >
               {item.title}
-            </ol>
+            </li>
           ))}
         </ul>
       </nav>
