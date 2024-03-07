@@ -1,17 +1,19 @@
 ---
 import { Icon } from '~/ui/components';
 import { Image } from 'astro:assets';
-import HeroImg from '~/ui/assets/images/hero.jpg';
+import HeroImg from '../assets/hero.jpg';
 ---
 
 <section class="bg-[#BB8056]/[.12]">
   <div class="relative max-w-wrapper h-[50svh] md:h-[75svh] max-h-[768px]">
     <Image
       loading="eager"
-      quality="max"
+      quality="mid"
+      format="webp"
       src={HeroImg}
-      widths={[700, 1800]}
-      sizes={'(min-width: 900px) 1800px, 700px'}
+      fetchpriority="high"
+      widths={[900, 1800]}
+      sizes="100vw"
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover"
     />
