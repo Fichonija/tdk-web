@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import ContactImg from '~/ui/assets/images/contact.png';
+import ContactImg from './assets/workshop.jpg';
 import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';
 ---
@@ -12,6 +12,13 @@ import ContactLinks from './ContactLinks';
       <h3 class="font-sansation font-light text-xl lg:text-2xl text-gray-900">Pošalji poruku</h3>
       <ContactForm client:load />
     </div>
-    <Image src={ContactImg} alt={'Radionica s alatima'} class="hidden md:block w-2/5 max-w-[600px] object-cover" />
+    <Image
+      src={ContactImg}
+      quality="low"
+      widths={[600, 1200]}
+      sizes="(min-width: 1500px) 600w, 40vw"
+      alt="Krupni kadar radionice sa stolarskim alatima"
+      class="hidden md:block w-2/5 max-w-[600px] object-cover"
+    />
   </section>
 </section>
