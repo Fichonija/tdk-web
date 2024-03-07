@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 
-const imageImports = import.meta.glob<{ default: ImageMetadata }>('/src/ui/assets/images/gallery/*.jpg');
+const imageImports = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/modules/GazeboProductPage/assets/gallery/*.jpg',
+);
 const images = Object.values(imageImports).map((i) => i());
 ---
 
@@ -13,10 +15,11 @@ const images = Object.values(imageImports).map((i) => i());
         images.map((image) => (
           <Image
             src={image}
-            widths={[700, 1000]}
-            sizes={'(min-width: 900px) 1000px, 700px'}
+            widths={[1000, 1600]}
+            sizes={'(min-width: 1800px) 1000w, 100vw'}
             class="object-cover h-full"
-            alt="Nadstrešnica"
+            alt="Fotografija nadstrešnice"
+            quality="mid"
             loading="lazy"
           />
         ))

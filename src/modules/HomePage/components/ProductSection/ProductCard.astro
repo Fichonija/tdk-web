@@ -14,9 +14,16 @@ const { imgSrc, imgAlt, title, description, isReverse } = Astro.props;
 ---
 
 <article class={clsx('md:max-h-80 flex justify-center', isReverse ? 'bg-white' : 'bg-[#F2EEE8]')}>
-  <div class={clsx('max-w-[2056px] flex flex-col', isReverse ? 'md:flex-row-reverse' : 'md:flex-row')}>
+  <div class={clsx('max-w-wrapper flex flex-col', isReverse ? 'md:flex-row-reverse' : 'md:flex-row')}>
     <div class="flex-1 max-w-5xl max-h-52 sm:max-h-72 md:max-h-80">
-      <Image src={imgSrc} alt={imgAlt} class="h-full object-cover" />
+      <Image
+        widths={[1600, 800]}
+        sizes="(min-width: 1800px) 820w, 50vw"
+        quality="mid"
+        src={imgSrc}
+        alt={imgAlt}
+        class="h-full object-cover"
+      />
     </div>
     <div class="flex-1 p-6 sm:p-10 lg:px-20">
       <div class="flex flex-col gap-4 lg:gap-8 justify-between font-sansation font-light">
