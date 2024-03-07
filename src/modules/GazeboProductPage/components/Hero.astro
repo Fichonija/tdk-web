@@ -1,5 +1,5 @@
 ---
-import HeroImg from '~/ui/assets/images/gazebo-hero.jpg';
+import HeroImg from '../assets/hero.jpg';
 import { Image } from 'astro:assets';
 ---
 
@@ -7,9 +7,10 @@ import { Image } from 'astro:assets';
   <Image
     src={HeroImg}
     alt=""
-    widths={[700, 1800]}
-    sizes={'(min-width: 900px) 1800px, 700px'}
+    widths={[900, 1800, 3600]}
+    sizes="(min-width: 1800px) 1800w, 100vw"
     loading="eager"
+    fetchpriority="high"
     quality="high"
     class="object-cover max-w-wrapper h-full w-full"
   />
