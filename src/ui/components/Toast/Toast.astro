@@ -1,0 +1,24 @@
+---
+import { Icon } from '../Icon';
+import { TOAST_CLOSE_ID, TOAST_CONTAINER_ID, TOAST_HELPER_TEXT_ID, TOAST_ID, TOAST_TEXT_ID } from './utils/const';
+---
+
+<div id={TOAST_ID} class="hidden fixed top-0 left-0 right-0 mx-auto w-fit max-w-sm md:max-w-lg">
+  <div id={TOAST_CONTAINER_ID} class="py-4 px-8 rounded-2xl flex gap-4 text-white">
+    <div class="flex flex-col gap-2 justify-between font-sansation">
+      <span id={TOAST_TEXT_ID} class="text-base md:text-lg"></span>
+      <span id={TOAST_HELPER_TEXT_ID} class="empty:hidden text-sm md:text-base"></span>
+    </div>
+    <button id={TOAST_CLOSE_ID} class="shrink-0 mt-[2px] w-5 h-5 md:w-6 md:h-6">
+      <Icon icon="close" />
+    </button>
+  </div>
+</div>
+
+<script>
+  import { removeToast } from './utils';
+  import { TOAST_CLOSE_ID } from './utils/const';
+
+  const closeButton = document.getElementById(TOAST_CLOSE_ID);
+  closeButton?.addEventListener('click', removeToast);
+</script>
