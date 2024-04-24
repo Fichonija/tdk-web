@@ -12,12 +12,14 @@ interface ContactData {
   message: string;
 }
 
-const handler: Handler = async ({ httpMethod, body }: HandlerEvent) => {
+const handler: Handler = async ({ httpMethod, body, headers }: HandlerEvent) => {
   if (httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: corsHeaders,
-    };
+    return corsOptionsResponse;
+  }
+
+  // //! use 'http://localhost:8080' for LOCAL DEVELOPMENT
+  if (headers.origin !== 'https://tdk.hr') {
+    return unauthorizedResponse;
   }
 
   if (httpMethod !== 'POST') {
@@ -60,11 +62,22 @@ const handler: Handler = async ({ httpMethod, body }: HandlerEvent) => {
 export { handler };
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': 'https://tdk.hr',
+  // 'Access-Control-Allow-Origin': 'https://tdk.hr',
   //! enable function invocation on LOCAL DEVELOPMENT
-  // 'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'POST',
+};
+
+const corsOptionsResponse = {
+  statusCode: 200,
+  headers: corsHeaders,
+};
+
+const unauthorizedResponse = {
+  statusCode: 401,
+  headers: corsHeaders,
+  body: JSON.stringify({ message: 'Unauthorized' }),
 };
 
 const badRequestMethodResponse = {
