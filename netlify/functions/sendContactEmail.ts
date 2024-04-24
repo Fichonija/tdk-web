@@ -62,9 +62,9 @@ const handler: Handler = async ({ httpMethod, body, headers }: HandlerEvent) => 
 export { handler };
 
 const corsHeaders = {
-  // 'Access-Control-Allow-Origin': 'https://tdk.hr',
+  'Access-Control-Allow-Origin': 'https://tdk.hr',
   //! enable function invocation on LOCAL DEVELOPMENT
-  'Access-Control-Allow-Origin': '*',
+  // 'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'POST',
 };

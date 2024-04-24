@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { InputWithLabels, TextareaWithLabels } from '~/shared/form';
-import { Button } from '~/ui/components';
+import { Button, showToast } from '~/ui/components';
 import { sendContactEmail, type ContactFormData } from './utils';
 
 const emptyContactFormValues = { name: '', email: '', message: '' };
@@ -16,14 +16,25 @@ const ContactForm = () => {
     try {
       const response = await sendContactEmail(values);
       if (response.ok) {
+        showToast({
+          text: 'Poruka je uspješno poslana!',
+          helperText: 'javiti ćemo vam se povratno prvom prilikom.',
+          variant: 'success',
+        });
         setValues(emptyContactFormValues);
       } else {
-        //todo toast library?
-        const body = await response.json();
-        alert(`Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije. ${body?.message}`);
+        showToast({
+          text: 'Došlo je do pogreške prilikom slanja podataka.',
+          helperText: 'pokušajte ponovno kasnije.',
+          variant: 'danger',
+        });
       }
     } catch (error) {
-      alert('Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije.');
+      showToast({
+        text: 'Došlo je do pogreške prilikom slanja podataka.',
+        helperText: 'pokušajte ponovno kasnije.',
+        variant: 'danger',
+      });
     }
 
     setIsSending(false);
