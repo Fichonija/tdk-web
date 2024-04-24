@@ -13,6 +13,13 @@ interface ContactData {
 }
 
 const handler: Handler = async ({ httpMethod, body }: HandlerEvent) => {
+  if (httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: corsHeaders,
+    };
+  }
+
   if (httpMethod !== 'POST') {
     return badRequestMethodResponse;
   }
@@ -38,24 +45,36 @@ const handler: Handler = async ({ httpMethod, body }: HandlerEvent) => {
 
     return {
       statusCode: 200,
+      headers: corsHeaders,
       body: JSON.stringify(response),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify((error as Error).message),
+      headers: corsHeaders,
+      body: JSON.stringify(error),
     };
   }
 };
 
 export { handler };
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': 'https://tdk.hr',
+  //! enable function invocation on LOCAL DEVELOPMENT
+  // 'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST',
+};
+
 const badRequestMethodResponse = {
   statusCode: 400,
-  body: JSON.stringify(`POST request method is required.`),
+  headers: corsHeaders,
+  body: JSON.stringify({ message: 'POST request method is required.' }),
 };
 
 const noBodyResponse = {
   statusCode: 400,
-  body: JSON.stringify('Request body must contain parameters: name, email, message.'),
+  headers: corsHeaders,
+  body: JSON.stringify({ message: 'Request body must contain parameters: name, email, message.' }),
 };
