@@ -11,7 +11,6 @@ const CONTACT_FUNCTION_PATH = `${isDev ? 'http://localhost:9999' : ''}/.netlify/
 const FETCH_OPTIONS: RequestInit = {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  mode: isDev ? 'no-cors' : undefined,
 };
 
 export async function sendContactEmail(data: ContactFormData) {

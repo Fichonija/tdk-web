@@ -1,12 +1,12 @@
-import { HttpStatusCode } from 'axios';
 import { useState, type FormEvent } from 'react';
 import { InputWithLabels, TextareaWithLabels } from '~/shared/form';
 import { Button } from '~/ui/components';
-import { isDev } from '~/utils/env';
 import { sendContactEmail, type ContactFormData } from './utils';
 
+const emptyContactFormValues = { name: '', email: '', message: '' };
+
 const ContactForm = () => {
-  const [values, setValues] = useState<ContactFormData>({ name: '', email: '', message: '' });
+  const [values, setValues] = useState<ContactFormData>(emptyContactFormValues);
   const [isSending, setIsSending] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -15,10 +15,12 @@ const ContactForm = () => {
 
     try {
       const response = await sendContactEmail(values);
-
-      if (response.status !== HttpStatusCode.Ok) {
+      if (response.ok) {
+        setValues(emptyContactFormValues);
+      } else {
         //todo toast library?
-        alert('Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije.');
+        const body = await response.json();
+        alert(`Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije. ${body?.message}`);
       }
     } catch (error) {
       alert('Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije.');
@@ -26,6 +28,8 @@ const ContactForm = () => {
 
     setIsSending(false);
   }
+
+  const isValid = values.name && values.email && values.message;
 
   return (
     <form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
@@ -54,7 +58,7 @@ const ContactForm = () => {
         />
       </div>
       <div className="w-full md:w-fit">
-        <Button type="submit" isFullWidth text={isSending ? 'Slanje...' : 'Pošalji'} isDisabled={isSending} />
+        <Button type="submit" isFullWidth text="Pošalji" isLoading={isSending} isDisabled={!isValid} />
       </div>
     </form>
   );
