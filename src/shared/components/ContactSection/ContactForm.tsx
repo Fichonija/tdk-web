@@ -3,16 +3,10 @@ import { useState, type FormEvent } from 'react';
 import { InputWithLabels, TextareaWithLabels } from '~/shared/form';
 import { Button } from '~/ui/components';
 import { isDev } from '~/utils/env';
-
-const CONTACT_FUNCTION_PATH = `${isDev ? 'http://localhost:9999' : ''}/.netlify/functions/sendContactEmail`;
-const FETCH_OPTIONS: RequestInit = {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  mode: isDev ? 'no-cors' : undefined,
-};
+import { sendContactEmail, type ContactFormData } from './utils';
 
 const ContactForm = () => {
-  const [values, setValues] = useState({ name: '', email: '', message: '' });
+  const [values, setValues] = useState<ContactFormData>({ name: '', email: '', message: '' });
   const [isSending, setIsSending] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -20,7 +14,7 @@ const ContactForm = () => {
     setIsSending(true);
 
     try {
-      const response = await fetch(CONTACT_FUNCTION_PATH, { ...FETCH_OPTIONS, body: JSON.stringify(values) });
+      const response = await sendContactEmail(values);
 
       if (response.status !== HttpStatusCode.Ok) {
         //todo toast library?
