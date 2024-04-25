@@ -11,4 +11,5 @@ export type IconType =
   | 'material'
   | 'cover'
   | 'chevronLeft'
-  | 'chevronRight';
+  | 'chevronRight'
+  | 'close';

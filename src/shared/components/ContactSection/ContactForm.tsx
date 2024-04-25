@@ -1,18 +1,12 @@
-import { HttpStatusCode } from 'axios';
 import { useState, type FormEvent } from 'react';
 import { InputWithLabels, TextareaWithLabels } from '~/shared/form';
-import { Button } from '~/ui/components';
-import { isDev } from '~/utils/env';
+import { Button, showToast } from '~/ui/components';
+import { sendContactEmail, type ContactFormData } from './utils';
 
-const CONTACT_FUNCTION_PATH = `${isDev ? 'http://localhost:9999' : ''}/.netlify/functions/sendContactEmail`;
-const FETCH_OPTIONS: RequestInit = {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  mode: isDev ? 'no-cors' : undefined,
-};
+const emptyContactFormValues = { name: '', email: '', message: '' };
 
 const ContactForm = () => {
-  const [values, setValues] = useState({ name: '', email: '', message: '' });
+  const [values, setValues] = useState<ContactFormData>(emptyContactFormValues);
   const [isSending, setIsSending] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -20,18 +14,33 @@ const ContactForm = () => {
     setIsSending(true);
 
     try {
-      const response = await fetch(CONTACT_FUNCTION_PATH, { ...FETCH_OPTIONS, body: JSON.stringify(values) });
-
-      if (response.status !== HttpStatusCode.Ok) {
-        //todo toast library?
-        alert('Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije.');
+      const response = await sendContactEmail(values);
+      if (response.ok) {
+        showToast({
+          text: 'Poruka je uspješno poslana!',
+          helperText: 'javiti ćemo vam se povratno prvom prilikom.',
+          variant: 'success',
+        });
+        setValues(emptyContactFormValues);
+      } else {
+        showToast({
+          text: 'Došlo je do pogreške prilikom slanja podataka.',
+          helperText: 'pokušajte ponovno kasnije.',
+          variant: 'danger',
+        });
       }
     } catch (error) {
-      alert('Došlo je do pogreške prilikom slanja podataka. Pokušajte ponovno kasnije.');
+      showToast({
+        text: 'Došlo je do pogreške prilikom slanja podataka.',
+        helperText: 'pokušajte ponovno kasnije.',
+        variant: 'danger',
+      });
     }
 
     setIsSending(false);
   }
+
+  const isValid = values.name && values.email && values.message;
 
   return (
     <form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
@@ -60,7 +69,7 @@ const ContactForm = () => {
         />
       </div>
       <div className="w-full md:w-fit">
-        <Button type="submit" isFullWidth text={isSending ? 'Slanje...' : 'Pošalji'} isDisabled={isSending} />
+        <Button type="submit" isFullWidth text="Pošalji" isLoading={isSending} isDisabled={!isValid} />
       </div>
     </form>
   );

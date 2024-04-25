@@ -1,4 +1,4 @@
-import { white, black, neutral, transparent, current } from 'tailwindcss/colors';
+import { white, black, red, neutral, transparent, current } from 'tailwindcss/colors';
 
 const green = {
   '50': '#DBFEE6',
@@ -20,4 +20,5 @@ export const colors = {
   black,
   gray: neutral,
   green,
+  red,
 };

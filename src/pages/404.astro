@@ -1,0 +1,18 @@
+---
+import { Button } from '~/ui/components';
+import Layout from '../shared/Layout';
+
+const homePath = Astro.url.origin;
+---
+
+<Layout
+  title="Tvornica Drvenih Konstrukcija"
+  description="Mlad i profesionalan tim koji izvodi stolarske radove diljem Hrvatske. Izrađujemo nadstrešnice, pergole i sjenice po mjeri a posebice se ponosimo kućicama na stablu koje izrađujemo po najmodernijim standardima."
+>
+  <div class="h-[90vh] flex justify-center items-center bg-[#F2F2F2]">
+    <div class="-mt-24 px-8 flex flex-col items-center gap-8">
+      <h1 class="font-sansation text-2xl md:text-3xl text-gray-800 text-center">404 stranica nije pronađena!</h1>
+      <Button text="Natrag na početnu" as="a" href={homePath} />
+    </div>
+  </div>
+</Layout>

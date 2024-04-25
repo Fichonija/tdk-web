@@ -2,7 +2,6 @@ import type { MultipleImagesProductItem } from '../types';
 import { useState } from 'react';
 import { ProductCardImage } from './ProductCardImage';
 import { ProductNavButton } from './ProductNavButton';
-import clsx from 'clsx';
 
 type Props = Omit<MultipleImagesProductItem, 'containerHeight' | 'type'>;
 
