@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import clsx from 'clsx';
 
 const imageImports = import.meta.glob<{ default: ImageMetadata }>(
   '/src/modules/GazeboProductPage/assets/gallery/*.jpg',
@@ -11,14 +12,20 @@ const images = Object.values(imageImports).map((i) => i());
   <div class="max-w-wrapper">
     <div class="flex flex-col gap-4 lg:gap-8">
       <h2 class="font-sansation font-light text-2xl lg:text-3xl text-gray-900 text-center">Galerija</h2>
-      <div class="px-4 md:px-10 flex gap-3 lg:gap-6 overflow-x-auto h-[300px] md:h-[400px] lg:h-[600px]">
+      <div
+        class={clsx(
+          'px-4 md:px-10 h-[300px] md:h-[400px] lg:h-[600px]',
+          'flex gap-3 lg:gap-6',
+          'overflow-x-auto snap-x',
+        )}
+      >
         {
           images.map((image) => (
             <Image
               src={image}
               widths={[1000, 1600]}
               sizes={'(min-width: 1800px) 1000w, 100vw'}
-              class="object-cover h-full"
+              class="object-cover h-full snap-center"
               alt="Fotografija nadstrešnice"
               quality="mid"
               loading="lazy"
