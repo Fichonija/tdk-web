@@ -7,23 +7,25 @@ const imageImports = import.meta.glob<{ default: ImageMetadata }>(
 const images = Object.values(imageImports).map((i) => i());
 ---
 
-<section class="py-6 px-4 md:p-10 lg:py-12 lg:px-10">
-  <div class="max-w-wrapper flex flex-col gap-4 lg:gap-8">
-    <h2 class="font-sansation font-light text-2xl lg:text-3xl text-gray-900 text-center">Galerija</h2>
-    <div class="flex gap-3 lg:gap-6 overflow-x-auto h-[300px] md:h-[400px] lg:h-[600px]">
-      {
-        images.map((image) => (
-          <Image
-            src={image}
-            widths={[1000, 1600]}
-            sizes={'(min-width: 1800px) 1000w, 100vw'}
-            class="object-cover h-full"
-            alt="Fotografija nadstrešnice"
-            quality="mid"
-            loading="lazy"
-          />
-        ))
-      }
+<section class="py-6 md:py-10 lg:py-12">
+  <div class="max-w-wrapper">
+    <div class="flex flex-col gap-4 lg:gap-8">
+      <h2 class="font-sansation font-light text-2xl lg:text-3xl text-gray-900 text-center">Galerija</h2>
+      <div class="px-4 md:px-10 flex gap-3 lg:gap-6 overflow-x-auto h-[300px] md:h-[400px] lg:h-[600px]">
+        {
+          images.map((image) => (
+            <Image
+              src={image}
+              widths={[1000, 1600]}
+              sizes={'(min-width: 1800px) 1000w, 100vw'}
+              class="object-cover h-full"
+              alt="Fotografija nadstrešnice"
+              quality="mid"
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
