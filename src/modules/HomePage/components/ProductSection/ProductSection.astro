@@ -2,7 +2,7 @@
 import ProductCard from './ProductCard.astro';
 import GazeeboSectionImg from '../../assets/gazeebo-section.jpeg';
 import TreehouseSectionImg from '../../assets/treehouse-section.jpg';
-import StatementSeparator from './StatementSeparator.astro';
+import { MissionStatement } from '~/shared/components';
 import { Button, Icon } from '~/ui/components';
 ---
 
@@ -17,9 +17,11 @@ import { Button, Icon } from '~/ui/components';
       <Icon icon="arrowRight" slot="iconRight" />
     </Button>
   </ProductCard>
-  <StatementSeparator
-    text="Inovativnim rješenjima i posvećenošću detaljima stvaramo dodatnu vrijednost vašem prostoru"
-  />
+  <div class="bg-[#F2F2F2]">
+    <MissionStatement
+      text="Inovativnim rješenjima i posvećenošću detaljima stvaramo dodatnu vrijednost vašem prostoru"
+    />
+  </div>
   <ProductCard
     imgSrc={TreehouseSectionImg}
     imgAlt="Fotografija muškarca koji sjedi na ogradi kućice na stablu, usred šume, i gleda u nebo"
@@ -33,7 +35,9 @@ import { Button, Icon } from '~/ui/components';
   >
     <Button as="a" href="#contact" text="Kontaktirajte nas" slot="action-button" />
   </ProductCard>
-  <StatementSeparator
-    text="Individualnim pristupom vodimo vas kroz čitavi proces, od ideje, izmjere i savjetovanja do dizajna i finalne izvedbe"
-  />
+  <div class="bg-[#F2F2F2]">
+    <MissionStatement
+      text="Individualnim pristupom vodimo vas kroz čitavi proces, od ideje, izmjere i savjetovanja do dizajna i finalne izvedbe"
+    />
+  </div>
 </section>

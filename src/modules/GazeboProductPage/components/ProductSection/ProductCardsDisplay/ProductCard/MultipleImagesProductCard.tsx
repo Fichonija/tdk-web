@@ -42,7 +42,7 @@ export const MultipleImagesProductCard = ({ title, text, images }: Props) => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800">
+            <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800 text-pretty">
               {text.map((t) => (
                 <p key={t}>{t}</p>
               ))}
