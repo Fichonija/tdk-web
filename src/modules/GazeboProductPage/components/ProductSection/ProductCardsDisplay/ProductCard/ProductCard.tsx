@@ -8,7 +8,7 @@ export const ProductCard = ({ title, text, image }: Props) => (
     <ProductCardImage src={image.meta.src} alt={image.alt} />
     <div className="flex flex-col items-center gap-4">
       <h3 className="font-bold text-lg md:text-xl text-gray-800">{title}</h3>
-      <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800">
+      <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800 text-pretty">
         {text.map((t) => (
           <p key={t}>{t}</p>
         ))}

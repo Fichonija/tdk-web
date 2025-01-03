@@ -10,7 +10,7 @@ import { ProductItemType } from './ProductCardsDisplay/types.ts';
 
 <section class="bg-[#F2EEE8]" style={{ '--product-section-color': '#BB8056' }}>
   <ProductSectionLayout>
-    <SectionHeader icon="material" text="Građa" />
+    <SectionHeader icon="material" text="Drvena građa" />
     <ProductCardsDisplay
       client:load
       summary={[
@@ -19,11 +19,13 @@ import { ProductItemType } from './ProductCardsDisplay/types.ts';
       ]}
       items={[
         {
-          title: 'Rezana',
+          title: 'KVH',
           text: [
-            'suhe grede izrađene od trupaca, prirodnog izgleda, pouzdan su i kvalitetan izbor za nosivu konstrukciju.',
+            'suhe grede izrađene od strojno sortiranih komada punog drva, zupčastim spojevima međusobno spojenih i lijepljenih pod pritiskom.',
+            'visoke dimenzijske stabilnosti, smanjene razine nastajanja pukotina i savijanja te manjeg broja čvorova.',
+            'ističu se prirodnim i modernim izgledom.',
           ],
-          image: { meta: SawnTimberImg, alt: 'Primjer izgleda rezane građe' },
+          image: { meta: KvhTimberImg, alt: 'Primjer izgleda KVH građe' },
           type: ProductItemType.BASE,
         },
         {
@@ -37,13 +39,11 @@ import { ProductItemType } from './ProductCardsDisplay/types.ts';
           type: ProductItemType.BASE,
         },
         {
-          title: 'KVH',
+          title: 'Rezana',
           text: [
-            'suhe grede izrađene od strojno sortiranih komada punog drva, zupčastim spojevima međusobno spojenih i lijepljenih pod pritiskom.',
-            'visoke dimenzijske stabilnosti, smanjene razine nastajanja pukotina i savijanja te manjeg broja čvorova.',
-            'ističu se prirodnim i modernim izgledom.',
+            'suhe grede izrađene od trupaca, prirodnog izgleda, pouzdan su i kvalitetan izbor za nosivu konstrukciju.',
           ],
-          image: { meta: KvhTimberImg, alt: 'Primjer izgleda KVH građe' },
+          image: { meta: SawnTimberImg, alt: 'Primjer izgleda rezane građe' },
           type: ProductItemType.BASE,
         },
       ]}

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MultipleContentProductCard, MultipleImagesProductCard, ProductCard } from './ProductCard';
 import type { ProductItemContent } from './types';
 import { isBaseProductItem, isMultipleImagesProductItem } from './utils';
@@ -32,7 +32,7 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
           ))}
         </ul>
       </nav>
-      <article className="flex transition-all duration-300">
+      <article className="flex">
         <div className="hidden py-16 px-8 w-1/3 lg:flex lg:flex-col gap-1 font-light text-xl text-gray-50 bg-[var(--product-section-color)]">
           {summary.map((text, i) => (
             <p key={i}>{text}</p>

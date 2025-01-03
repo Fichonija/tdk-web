@@ -6,7 +6,7 @@ interface ProductNavButtonProps {
 
 export const ProductNavButton = ({ type, onClick, isDisabled }: ProductNavButtonProps) => (
   <button
-    className="w-full h-full text-gray-600 hover:text-gray-800 disabled:text-gray-300"
+    className="w-full h-full text-gray-600 hover:text-gray-800 disabled:text-gray-300 transition-colors"
     onClick={onClick}
     disabled={isDisabled}
   >

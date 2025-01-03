@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import { Icon } from '~/ui/components';
 
 const imageImports = import.meta.glob<{ default: ImageMetadata }>(
   '/src/modules/GazeboProductPage/assets/gallery/*.jpg',
@@ -48,12 +47,6 @@ const images = Object.values(imageImports).map((i) => i());
               }
             </div>
           </div>
-          <button disabled class="embla__nav embla__prev left-8 md:left-20">
-            <Icon icon="arrowRight" className="w-6 h-6 rotate-180" />
-          </button>
-          <button class="embla__nav embla__next right-8 md:right-20">
-            <Icon icon="arrowRight" className="w-6 h-6" />
-          </button>
         </div>
       </div>
     </div>
@@ -66,25 +59,6 @@ const images = Object.values(imageImports).map((i) => i());
   const rootNode = document.querySelector('.embla') as HTMLElement;
   const viewportNode = rootNode.querySelector('.embla__viewport') as HTMLElement;
 
-  const prevButtonNode = rootNode.querySelector('.embla__prev') as HTMLButtonElement;
-  const nextButtonNode = rootNode.querySelector('.embla__next') as HTMLButtonElement;
-
   const options: EmblaOptionsType = { loop: false };
-  const embla = EmblaCarousel(viewportNode, options);
-  embla.on('select', (embla) => {
-    if (embla.canScrollPrev()) {
-      prevButtonNode.disabled = false;
-    } else {
-      prevButtonNode.disabled = true;
-    }
-
-    if (embla.canScrollNext()) {
-      nextButtonNode.disabled = false;
-    } else {
-      nextButtonNode.disabled = true;
-    }
-  });
-
-  prevButtonNode.addEventListener('click', () => embla.scrollPrev(), false);
-  nextButtonNode.addEventListener('click', () => embla.scrollNext(), false);
+  const _embla = EmblaCarousel(viewportNode, options);
 </script>

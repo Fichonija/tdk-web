@@ -20,7 +20,7 @@ import { ProductItemType } from './ProductCardsDisplay/types';
       client:load
       summary={[
         'Imamo bogatu ponudu pokrova za nadstrešnice.',
-        'Pokrovi sa zasjenom i crijepovi rješenja su s kojima ćete postići prirodan izgled i zaklon od padalina.',
+        'Pokrovi sa zasjenom i crjepovi rješenja su s kojima ćete postići prirodan izgled i zaklon od padalina.',
         'Ako trebate pojačanu otpornost i izolaciju pogledajte našu ponudu polikarbonatnih, limenih i termoizolacijskih ploča.',
       ]}
       items={[
@@ -32,33 +32,40 @@ import { ProductItemType } from './ProductCardsDisplay/types';
         },
         {
           title: 'Zasjena',
-          text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namjenjene vanjskim uvjetima.'],
-          images: [
-            { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
-            { meta: DynamicShadowCoverImg, alt: 'Nadstrešnica sa dinamičnom zasjenom' },
+          subitems: [
+            {
+              title: 'Fiksna zasjena',
+              text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namijenjene vanjskim uvjetima.'],
+              image: { meta: StaticShadowCoverImg, alt: 'Nadstrešnica sa statičnom zasjenom' },
+            },
+            {
+              title: 'Pomična zasjena',
+              text: ['fiksna ili pomična zasjena izrađena od akrilne tkanine namijenjene vanjskim uvjetima.'],
+              image: { meta: DynamicShadowCoverImg, alt: 'Nadstrešnica sa dinamičnom zasjenom' },
+            },
           ],
-          type: ProductItemType.MULTIPLE_IMAGES,
+          type: ProductItemType.MULTIPLE_CONTENT,
         },
         {
           title: 'Polikarbonatne ploče',
           subitems: [
             {
-              title: 'Ravne',
+              title: 'Valovite polikarbonatne ploče',
+              text: [
+                'prozirne ploče, piramidalno strukturirane sa donje strane.',
+                'velike otpornosti na ekstremne vremenske uvjete i izuzetno dugog vijeka trajanja.',
+                'osiguravaju visoku razinu svjetlosti te optimiziraju sunčevo zračenje.',
+                'boja: prozirna, bronca, siva.',
+              ],
+              image: { meta: PolycarbWavyImg, alt: 'Nadstrešnica sa valovitim polikarbonatnim pločama' },
+            },
+            {
+              title: 'Ravne polikarbonatne ploče',
               text: [
                 'prozirne višeslojne ploče sa komorama, sa obostranom UV zaštitom.',
                 'boja: prozirna, bronca, opal.',
               ],
               image: { meta: PolycarbStraightImg, alt: 'Nadstrešnica sa ravnim polikarbonatnim pločama' },
-            },
-            {
-              title: 'Valovite',
-              text: [
-                'prozirne ploče, piramidalno strukturirane sa donje strane.',
-                'velike otpornosti na ekstremne vremenske uvjete i izuzezno dugog vijeka trajanja.',
-                'osiguravaju visoku razinu svijetlosti te optimiziraju sunčevo zračenje.',
-                'boja: prozirna, bronca, siva.',
-              ],
-              image: { meta: PolycarbWavyImg, alt: 'Nadstrešnica sa valovitim polikarbonatnim pločama' },
             },
           ],
           type: ProductItemType.MULTIPLE_CONTENT,
@@ -66,7 +73,8 @@ import { ProductItemType } from './ProductCardsDisplay/types';
         {
           title: 'Limene ploče',
           text: [
-            'trapezne limene ploče, bez ili sa sekundarnim krovom - daske ili brodski pod sa paropropusnom folijom.',
+            'trapezne limene ploče ili imitacija crijepa, bez ili sa sekundarnim krovom.',
+            'brodski pod sa paropropusnom folijom.',
           ],
           image: { meta: TinPanelImg, alt: 'Nadstrešnica sa limenim pločama' },
           type: ProductItemType.BASE,
@@ -79,9 +87,7 @@ import { ProductItemType } from './ProductCardsDisplay/types';
         },
         {
           title: 'Crijep',
-          text: [
-            'glineni crijep po izboru, bez ili sa sekundarnim krovom - daske ili brodski pod sa paropropusnom folijom.',
-          ],
+          text: ['glineni crijep po izboru, bez ili sa sekundarnim krovom.', 'brodski pod sa paropropusnom folijom.'],
           image: { meta: TileImg, alt: 'Nadstrešnica sa crijepom' },
           type: ProductItemType.BASE,
         },
