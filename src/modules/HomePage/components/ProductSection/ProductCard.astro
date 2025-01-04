@@ -13,23 +13,23 @@ interface Props {
 const { imgSrc, imgAlt, title, description, isReverse } = Astro.props;
 ---
 
-<article class={clsx('md:max-h-80 flex justify-center', isReverse ? 'bg-white' : 'bg-[#F2EEE8]')}>
-  <div class={clsx('max-w-wrapper flex flex-col', isReverse ? 'md:flex-row-reverse' : 'md:flex-row')}>
-    <div class="flex-1 max-w-5xl max-h-52 sm:max-h-72 md:max-h-80">
+<article class={clsx('flex justify-center', isReverse ? 'bg-white' : 'bg-[#F2EEE8]')}>
+  <div class={clsx('w-full max-w-wrapper flex flex-col', isReverse ? 'md:flex-row-reverse' : 'md:flex-row')}>
+    <div class="relative flex-1 max-sm:max-h-52 max-md:max-h-72">
       <Image
         widths={[1600, 800]}
         sizes="(min-width: 1800px) 820w, 50vw"
         quality="mid"
         src={imgSrc}
         alt={imgAlt}
-        class="h-full object-cover"
+        class="md:absolute h-full object-cover"
       />
     </div>
     <div class="flex-1 p-6 sm:p-10 lg:px-20">
       <div class="flex flex-col gap-4 lg:gap-8 justify-between font-sansation font-light">
         <h2 class="text-2xl lg:text-3xl text-gray-900">{title}</h2>
         <div class="flex flex-col gap-3 lg:gap-6">
-          <p class="text-xl lg:text-2xl text-gray-800">{description}</p>
+          <p class="text-xl lg:text-2xl text-gray-800 text-pretty">{description}</p>
           <slot name="action-button" />
         </div>
       </div>

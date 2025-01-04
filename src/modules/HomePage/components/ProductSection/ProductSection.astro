@@ -2,7 +2,7 @@
 import ProductCard from './ProductCard.astro';
 import GazeeboSectionImg from '../../assets/gazeebo-section.jpeg';
 import TreehouseSectionImg from '../../assets/treehouse-section.jpg';
-import StatementSeparator from './StatementSeparator.astro';
+import { MissionStatement } from '~/shared/components';
 import { Button, Icon } from '~/ui/components';
 ---
 
@@ -11,20 +11,33 @@ import { Button, Icon } from '~/ui/components';
     imgSrc={GazeeboSectionImg}
     imgAlt="Fotografija prostrane nadstrešnice uz more na sunčani dan"
     title="Nadstrešnice, pergole i sjenice"
-    description="Izrađujemo nadstrešnice, pergole i sjenice od najkvalitetnijeg drva"
+    description="Od jednostavnih oslonjenih konstrukcija do raskošnih samostojećih modela sa krovom na jednu, dvije ili više voda"
   >
     <Button as="a" href="/nadstresnice" text="Saznajte više" slot="action-button">
       <Icon icon="arrowRight" slot="iconRight" />
     </Button>
   </ProductCard>
-  <StatementSeparator />
+  <div class="bg-[#F2F2F2]">
+    <MissionStatement
+      text="Inovativnim rješenjima i posvećenošću detaljima stvaramo dodatnu vrijednost vašem prostoru"
+    />
+  </div>
   <ProductCard
     imgSrc={TreehouseSectionImg}
     imgAlt="Fotografija muškarca koji sjedi na ogradi kućice na stablu, usred šume, i gleda u nebo"
     title="Kućice na stablu"
-    description="Iznimno smo ponosni na kućice na stablu koje izrađujemo po mjeri"
+    description={`Za male i velike ljubitelje avantura. 
+      Popnite se u svijet mašte jedinstvenim kućicama na stablu, idealnim mjestom za igru i odmor. 
+      Svaka kućica pažljivo je prilagođena vašim željama i specifičnostima stabala i okruženja, 
+      osiguravajući pritom sigurnost te nezaboravno iskustvo boravka u prirodi.
+      `}
     isReverse
   >
     <Button as="a" href="#contact" text="Kontaktirajte nas" slot="action-button" />
   </ProductCard>
+  <div class="bg-[#F2F2F2]">
+    <MissionStatement
+      text="Individualnim pristupom vodimo vas kroz čitavi proces, od ideje, izmjere i savjetovanja do dizajna i finalne izvedbe"
+    />
+  </div>
 </section>

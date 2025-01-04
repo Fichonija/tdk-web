@@ -1,5 +1,5 @@
 import type { MultipleContentProductItem } from '../types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProductCardImage } from './ProductCardImage';
 import { ProductNavButton } from './ProductNavButton';
 
@@ -7,6 +7,8 @@ type Props = Pick<MultipleContentProductItem, 'subitems'>;
 
 export const MultipleContentProductCard = ({ subitems }: Props) => {
   const [currItemIndex, setCurrItemIndex] = useState(0);
+  useEffect(() => setCurrItemIndex(0), [subitems]);
+
   const { title, text, image } = subitems[currItemIndex];
 
   return (
@@ -39,7 +41,7 @@ export const MultipleContentProductCard = ({ subitems }: Props) => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800">
+            <div className="flex flex-col gap-2 font-light text-lg md:text-xl text-gray-800 text-pretty">
               {text.map((t) => (
                 <p key={t}>{t}</p>
               ))}
