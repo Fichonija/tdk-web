@@ -13,10 +13,10 @@
     "typecheck:astro": "astro check"
   },
   "dependencies": {
-    "@astrojs/react": "^4.1.2",
+    "@astrojs/react": "^4.2.0",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.4",
-    "astro": "^5.1.2",
+    "@astrojs/tailwind": "^6.0.0",
+    "astro": "^5.2.5",
     "clsx": "^2.1.0",
     "embla-carousel": "^8.5.1",
     "form-data": "^4.0.0",
