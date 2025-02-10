@@ -14,12 +14,12 @@ const images = Object.values(imageImports).map((i) => i());
     border: 1px solid black;
     border-radius: 100%;
     padding: 8px;
-    background-color: theme(colors.gray.200);
+    background-color: var(--color-gray-200);
     cursor: pointer;
     transition: background-color 200ms;
   }
   .embla__nav:disabled {
-    background-color: theme(colors.gray.400);
+    background-color: var(--color-gray-400);
     cursor: not-allowed;
   }
 </style>
