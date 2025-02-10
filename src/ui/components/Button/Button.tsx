@@ -35,7 +35,7 @@ export const Button = ({
       disabled={isClickDisabled}
       className={clsx(
         isFullWidth ? 'w-full' : 'w-fit',
-        'group py-2 px-4 rounded bg-[#829C9B]',
+        'group py-2 px-4 rounded-sm bg-[#829C9B]',
         isDisabled && 'bg-[#afafaf]',
         !isClickDisabled && 'hover:bg-[#688887] focus:bg-[#688887] active:bg-[#3F6362]',
       )}
