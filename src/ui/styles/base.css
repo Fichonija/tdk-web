@@ -1,6 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --font-display: Montserrat;
+  --font-sansation: Sansation;
+
+  --animate-slide: slide 600ms ease-in-out infinite alternate;
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(6px);
+    }
+  }
+}
 
 @layer base {
   @font-face {
@@ -33,9 +47,7 @@
   }
 }
 
-@layer utilities {
-  .max-w-wrapper {
-    max-width: 1800px;
-    margin-inline: auto;
-  }
+@utility max-w-wrapper {
+  max-width: 1800px;
+  margin-inline: auto;
 }
