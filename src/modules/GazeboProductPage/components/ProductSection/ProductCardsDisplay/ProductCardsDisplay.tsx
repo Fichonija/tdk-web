@@ -49,17 +49,15 @@ export const ProductCardsDisplay = ({ summary, items }: Props) => {
         <div className="flex-3 overflow-x-hidden" ref={containerRef}>
           <div className="flex h-full">
             {items.map((item, i) => {
-              return isBaseProductItem(item) ? (
+              return (
                 <article className="h-full min-w-0 flex-[0_0_100%]" key={i}>
-                  <ProductCard {...item} />
-                </article>
-              ) : isMultipleImagesProductItem(item) ? (
-                <article className="h-full min-w-0 flex-[0_0_100%]" key={i}>
-                  <MultipleImagesProductCard {...item} />
-                </article>
-              ) : (
-                <article className="h-full min-w-0 flex-[0_0_100%]" key={i}>
-                  <MultipleContentProductCard {...item} />
+                  {isBaseProductItem(item) ? (
+                    <ProductCard {...item} />
+                  ) : isMultipleImagesProductItem(item) ? (
+                    <MultipleImagesProductCard {...item} />
+                  ) : (
+                    <MultipleContentProductCard {...item} />
+                  )}
                 </article>
               );
             })}
