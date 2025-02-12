@@ -1,8 +1,11 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MultipleContentProductCard, MultipleImagesProductCard, ProductCard } from './ProductCard';
 import type { ProductItemContent } from './types';
 import { isBaseProductItem, isMultipleImagesProductItem } from './utils';
+import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaCarouselType } from 'embla-carousel';
+import { useProductCardsCarousel } from './hooks';
 
 interface Props {
   summary: string[];
@@ -10,42 +13,57 @@ interface Props {
 }
 
 export const ProductCardsDisplay = ({ summary, items }: Props) => {
-  const [selectedItem, setSelectedItem] = useState(items[0]);
+  const { containerRef, selectedItem, selectItem } = useProductCardsCarousel();
 
   return (
-    <div className="w-full flex flex-col gap-4 lg:gap-8 font-sansation">
+    <div className="font-sansation flex w-full flex-col gap-4 lg:gap-8">
       <nav>
-        <ul className="flex flex-wrap font-light text-xl lg:text-2xl text-gray-900">
+        <ul className="flex flex-wrap text-xl font-light text-gray-900 lg:text-2xl">
           {items.map((item, i) => (
             <li
               tabIndex={0}
               key={i}
               className={clsx(
-                'p-2 lg:p-4 flex-1 lg:flex-initial cursor-pointer border-b-2 text-center whitespace-nowrap',
-                selectedItem === item ? 'border-b-black' : 'border-b-black/20',
+                'flex-1 cursor-pointer border-b-2 p-2 text-center whitespace-nowrap transition-colors lg:flex-initial lg:p-4',
+                selectedItem === i ? 'border-b-black/80' : 'border-b-black/20',
               )}
-              onClick={() => setSelectedItem(item)}
-              onKeyDown={(e) => e.key === 'Enter' && setSelectedItem(item)}
+              onClick={() => selectItem(i)}
+              onKeyDown={(e) => e.key === 'Enter' && selectItem(i)}
             >
               {item.title}
             </li>
           ))}
         </ul>
       </nav>
-      <article className="flex">
-        <div className="hidden py-16 px-8 w-1/3 lg:flex lg:flex-col gap-1 font-light text-xl text-gray-50 bg-[var(--product-section-color)]">
+      <div className="flex">
+        <div
+          className={clsx(
+            'hidden bg-[var(--product-section-color)] px-8 py-16 text-xl font-light text-gray-50',
+            'min-w-[300px] flex-1 gap-1 lg:flex lg:flex-col',
+          )}
+        >
           {summary.map((text, i) => (
             <p key={i}>{text}</p>
           ))}
         </div>
-        {isBaseProductItem(selectedItem) ? (
-          <ProductCard {...selectedItem} />
-        ) : isMultipleImagesProductItem(selectedItem) ? (
-          <MultipleImagesProductCard {...selectedItem} />
-        ) : (
-          <MultipleContentProductCard {...selectedItem} />
-        )}
-      </article>
+        <div className="flex-3 overflow-x-hidden" ref={containerRef}>
+          <div className="flex h-full">
+            {items.map((item, i) => {
+              return (
+                <article className="h-full min-w-0 flex-[0_0_100%]" key={i}>
+                  {isBaseProductItem(item) ? (
+                    <ProductCard {...item} />
+                  ) : isMultipleImagesProductItem(item) ? (
+                    <MultipleImagesProductCard {...item} />
+                  ) : (
+                    <MultipleContentProductCard {...item} />
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
