@@ -3,14 +3,16 @@ import { Image } from 'astro:assets';
 import ContactImg from './assets/workshop.jpg';
 import ContactForm from './ContactForm';
 import ContactLinks from './ContactLinks';
+import ContactDetails from './ContactDetails.astro';
 ---
 
-<section id="contact" class="pb-16 lex flex-col gap-8 bg-[#F2EEE8]">
+<section id="contact" class="lex flex-col gap-8 bg-[#F2EEE8] pb-16">
   <ContactLinks />
-  <section class="max-w-wrapper w-full flex justify-center bg-[#CFCBBF]">
-    <div class="w-3/5 flex flex-col gap-4 md:gap-6 p-6 md:p-10 flex-1">
-      <h3 class="font-sansation font-light text-xl lg:text-2xl text-gray-900">Pošalji poruku</h3>
+  <section class="max-w-wrapper flex w-full justify-center bg-[#CFCBBF]">
+    <div class="flex w-3/5 flex-1 flex-col gap-4 p-6 md:gap-6 md:p-10">
+      <h3 class="font-sansation text-xl font-light text-gray-900 lg:text-2xl">Pošalji poruku</h3>
       <ContactForm client:load />
+      <ContactDetails />
     </div>
     <Image
       src={ContactImg}
@@ -18,7 +20,7 @@ import ContactLinks from './ContactLinks';
       widths={[600, 1200]}
       sizes="(min-width: 1500px) 600w, 40vw"
       alt="Krupni kadar radionice sa stolarskim alatima"
-      class="hidden md:block w-2/5 max-w-[600px] object-cover"
+      class="hidden w-2/5 max-w-[600px] object-cover md:block"
     />
   </section>
 </section>
