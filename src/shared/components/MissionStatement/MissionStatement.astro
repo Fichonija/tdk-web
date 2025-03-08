@@ -1,13 +1,15 @@
 ---
 interface Props {
   text: string;
+  as?: string;
 }
 
-const { text } = Astro.props;
+const { text, as = 'p' } = Astro.props;
+const Element = as;
 ---
 
 <section class="p-4 md:p-10">
-  <p class="max-w-wrapper font-sansation font-light text-gray-900 text-xl md:text-2xl !leading-loose text-center">
+  <Element class="max-w-wrapper font-sansation font-light text-gray-900 text-xl md:text-2xl !leading-loose text-center">
     {text}
-  </p>
+  </Element>
 </section>

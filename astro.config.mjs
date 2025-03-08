@@ -10,4 +10,7 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   vite: { plugins: [tailwindcss()] },
   site: 'https://tdk.hr',
+  redirects: {
+    "/nadstresnice": "/drvena-nadstresnica-pergola-izrada-po-mjeri",
+  }
 });

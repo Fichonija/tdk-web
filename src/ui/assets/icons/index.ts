@@ -12,4 +12,6 @@ export type IconType =
   | 'cover'
   | 'chevronLeft'
   | 'chevronRight'
+  | 'facebook'
+  | 'instagram'
   | 'close';
